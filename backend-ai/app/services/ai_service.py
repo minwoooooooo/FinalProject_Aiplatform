@@ -149,81 +149,106 @@ class AIService:
             return {"result": "에러 발생", "prob": 0, "plate": "Error"}
 
     def process_video_task(self, video_key):
-        """S3 업로드 시 백그라운드 분석 태스크"""
-        # URL 디코딩 (한글 파일명 처리)
+        """S3 업로드(라즈베리파이) 시 백그라운드 분석 태스크"""
+        
+        # ★★★ [추가됨] 웹 업로드 파일은 여기서 분석하지 않고 건너뜀 (파싱 에러 방지) ★★★
+        if "WEB_UPLOAD" in video_key:
+            print(f"🚫 [Bypass] 웹 업로드 파일은 스킵합니다: {video_key}")
+            return
+
         decoded_key = urllib.parse.unquote_plus(video_key)
-        filename = os.path.basename(decoded_key)
+        filename = os.path.basename(decoded_key) 
 
         if filename in processing_files: return
         processing_files.add(filename)
 
         try:
             local_path = os.path.join(TEMP_VIDEO_DIR, filename)
-            
-            # 폴더가 없으면 생성
             os.makedirs(TEMP_VIDEO_DIR, exist_ok=True)
-            
             s3_manager.download_file(decoded_key, local_path)
             
             # 1. 영상 분석 수행
             analysis_result = self.analyze_local_video(local_path)
             video_url = s3_manager.get_presigned_url(decoded_key)
             
-            # 날짜 및 시간 분리 (Java DTO 포맷 맞춤)
-            incident_datetime = analysis_result.get("time", datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+            # =========================================================
+            # 파일명 파싱 (날짜, 시간, 위치 추출)
+            # =========================================================
             try:
-                dt_obj = datetime.strptime(incident_datetime, '%Y-%m-%d %H:%M:%S')
-                incident_date = dt_obj.strftime('%Y-%m-%d')
-                incident_time = dt_obj.strftime('%H:%M:%S')
-            except:
-                incident_date = incident_datetime
-                incident_time = ""
+                name_without_ext = os.path.splitext(filename)[0]
+                parts = name_without_ext.split('_') 
 
-            # 시리얼 번호 (파일명 활용)
-            serial_no = os.path.splitext(filename)[0]
+                if len(parts) >= 2:
+                    # 날짜 (260203 -> 2026-02-03)
+                    date_part = parts[0]
+                    incident_date = f"20{date_part[:2]}-{date_part[2:4]}-{date_part[4:]}"
+
+                    # 시간 (142848 -> 14:28:48)
+                    time_part = parts[1]
+                    incident_time = f"{time_part[:2]}:{time_part[2:4]}:{time_part[4:]}"
+
+                    # 위치
+                    if len(parts) > 2:
+                        incident_location = " ".join(parts[2:])
+                    else:
+                        incident_location = "위치 정보 없음"
+                    
+                    print(f"📂 [파일명 분석 성공] 일시: {incident_date} {incident_time} / 위치: {incident_location}")
+                else:
+                    raise ValueError("파일명 형식이 맞지 않음")
+
+            except Exception as e:
+                print(f"⚠️ 파일명 파싱 실패 (기본값 사용): {e}")
+                now = datetime.now()
+                incident_date = now.strftime('%Y-%m-%d')
+                incident_time = now.strftime('%H:%M:%S')
+                incident_location = "위치 정보 없음"
+
+            # ---------------------------------------------------------
+            
             violation_type = analysis_result.get("result", "")
+            plate_no = analysis_result.get("plate", "-")
+            if plate_no == "-" or plate_no == "인식 불가": plate_no = "식별불가"
 
-            # ---------------- [추가된 코드 시작: LLM 신고 초안 생성] ----------------
-            # 2. LLM 매니저 가져오기
+            try:
+                serial_no = video_key.split('/')[1] 
+            except:
+                serial_no = "Unknown"
+
+            # 2. LLM 신고 초안 생성
             llm_manager = get_llm_manager()
             ai_description = ""
             
-            # 위반 사항이 있을 때만 초안 생성 ('정상 주행'이나 '에러'가 아닐 때)
             if "정상" not in violation_type and "에러" not in violation_type:
-                # AI에게 던져줄 프롬프트 만들기
                 draft_prompt = f"""
-                다음 위반 사실을 바탕으로 안전신문고 신고 내용을 "상세 내용" 칸에 들어갈 말투로 작성해줘.
-                - 위반 일시: {incident_datetime}
-                - 위반 장소: {analysis_result.get("location", "")}
-                - 위반 항목: {violation_type}
-                - 차량 번호: {analysis_result.get("plate", "")}
-                """
+                다음 위반 사실을 바탕으로 안전신문고 신고 내용을 작성해줘.
+                데이터가 "정보 없음"인 항목은 내용을 비워둬.
 
-                # 함수 호출해서 초안 생성
+                - 위반 일시: {incident_date} {incident_time}
+                - 위반 장소: {incident_location}
+                - 위반 항목: {violation_type}
+                - 차량 번호: {plate_no}
+                """
                 print(f"📝 신고 초안 생성 요청 중... (위반: {violation_type})")
                 ai_description = llm_manager.get_report_draft(draft_prompt)
                 print(f"✅ AI가 생성한 신고 초안: {ai_description[:30]}...")
             else:
                 ai_description = "위반 사항 없음 또는 분석 실패"
-            # ---------------- [추가된 코드 끝] ----------------
 
-            # 3. 자바 서버로 보낼 최종 데이터(payload) 구성
-            # (Java의 IncidentLogDTO와 매핑됩니다)
+            # 3. 데이터 전송
             payload = {
                 "serialNo": serial_no,
                 "videoUrl": video_url,
                 "incidentDate": incident_date,
                 "incidentTime": incident_time,
                 "violationType": violation_type,
-                "plateNo": analysis_result.get("plate", "-"),
-                "location": analysis_result.get("location", ""),
-                
-                "aiDraft": ai_description  # <--- ★ 상세 내용(초안) 추가됨!
+                "plateNo": plate_no,
+                "location": incident_location, 
+                "aiDraft": ai_description 
             }
             
             detection_logs.append(payload)
 
-            # 4. Java(Spring) 서버로 결과 전송
             if USE_JAVA_SYNC:
                 try:
                     requests.post(JAVA_SERVER_URL, json=payload, timeout=3)
@@ -233,7 +258,6 @@ class AIService:
             
             print(f"✅ 분석 및 전송 완료: {violation_type}")
 
-            # 임시 파일 정리
             if os.path.exists(local_path): 
                 os.remove(local_path)
             
