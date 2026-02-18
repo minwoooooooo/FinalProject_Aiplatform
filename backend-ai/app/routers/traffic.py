@@ -14,10 +14,10 @@ from app.services.llm_service import get_llm_manager
 USE_JAVA_SYNC = True 
 
 # 챗봇 답변을 보낼 자바 서버의 주소
-JAVA_TARGET_URL = "http://localhost:8080/api/chatbot-response"
+JAVA_TARGET_URL = "http://backend-service:8080/api/chatbot-response"
 
 # AI가 감지한 교통 위반 데이터를 보낼 자바 서버 주소
-JAVA_VIOLATION_URL = "http://localhost:8080/api/violations"
+JAVA_VIOLATION_URL = "http://backend-service:8080/api/violations"
 
 # LLM을 조절하는 관리자 객체를 변수에 담기: 프롬포트(법률 전문가, 신고서 작성 등)와 API키 관리가 세팅된 프로그램 가져오기
 llm_manager = get_llm_manager()
@@ -91,12 +91,10 @@ async def s3_webhook(request: Request, background_tasks: BackgroundTasks):
     """S3 업로드 신호를 감지하여 AI 분석 작업 시작"""
     data = await request.json()
     
-    # --- [중복 분석 방지 코드 추가 시작] ---
     # 신호(data) 내용 중에 'WEB_UPLOAD'라는 글자가 있으면 이미 분석된 것이므로 무시합니다.
     if "WEB_UPLOAD" in str(data):
         print(f"🚫 [Bypass] 웹 업로드 파일은 이미 분석되었으므로 건너뜁니다.")
         return {"status": "skipped", "reason": "already_analyzed_in_web"}
-    # --- [중복 분석 방지 코드 추가 끝] ---
 
     for record in data.get('Records', []):
         video_key = record['s3']['object']['key']

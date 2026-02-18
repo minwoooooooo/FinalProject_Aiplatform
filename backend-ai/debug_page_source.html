@@ -1,0 +1,1444 @@
+<html lang="ko"><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
+
+    <title>안전신문고&gt;신고서 작성</title>
+    <meta name="description" content="안전신문고">
+    <meta name="author" content="VIISON">
+
+    <meta property="og:title" content="안전신문고 홈페이지">
+    <meta property="og:type" content="Webpage">
+    <meta property="og:image" content="https://safetyreport.go.kr/images/safetyreport_logo.png">
+    <meta property="og:description" content="재난 또는 그 밖의 사고·위험으로부터 국민의 안전을 확보하기 위하여 안전위험 상황을 행정기관 등에 신고하는 행위입니다.">
+
+    <meta property="og:title" content="안전신문고 홈페이지">
+    <meta property="og:type" content="Website">
+    <meta property="og:image" content="https://safetyreport.go.kr/images/safetyreport_logo.png">
+    <meta property="og:description" content="재난 또는 그 밖의 사고·위험으로부터 국민의 안전을 확보하기 위하여 안전위험 상황을 행정기관 등에 신고하는 행위입니다.">
+
+
+    <!-- <meta name="viewport" content="width=1050,initial-scale=1"> -->
+
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/css/subStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightslider.css">
+    <link type="text/css" rel="stylesheet" href="/css/jquery.timepicker.css" media=""><!-- 타이머css -->
+
+    <script type="text/javascript">
+    if(location.pathname == "/" && location.hash == ''){
+        var href = location.href;
+        console.log(href);
+        var pos = href.indexOf("safepeople");
+        console.log(pos);
+
+        if(pos >= 0) {
+            document.domain = 'safepeople.go.kr';
+        } else {
+            //document.domain = 'safetyreport.go.kr';
+        }
+
+        location.href="#main";
+    }else{
+        location.href = location.hash;
+    };
+    </script>
+
+<!-- product version -->
+<!--
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery.formatter.min.js"></script>
+    <script type="text/javascript" src="/js/libs/underscore-min.js"></script>
+    <script type="text/javascript" src="/js/libs/backbone-min.js"></script>
+    <script type="text/javascript" src="/js/libs/handlebars.min.js"></script>
+
+    <script type="text/javascript" src="/js/libs/require-min.js"></script>
+    <script type="text/javascript" src="/js/libs/footable.min.js"></script>
+    <script type="text/javascript" src="/js/libs/moment.min.js"></script>
+-->
+
+<!-- develop version -->
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/libs/jquery-3.0.0.js"></script> -->
+    <script type="text/javascript" src="/js/libs/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery.formatter.min.js"></script>
+    <script type="text/javascript" src="/js/libs/underscore.js"></script>
+    <script type="text/javascript" src="/js/libs/backbone.js"></script>
+    <script type="text/javascript" src="/js/libs/handlebars.js"></script>
+    <script type="text/javascript" src="/js/libs/touchSwipe.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery.timepicker.min.js"></script><!-- 타이머js -->
+
+    <script type="text/javascript" src="/js/libs/fileupload/util.js"></script>
+    <script type="text/javascript" src="/js/libs/fileupload/jquery-fileupload/vendor/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="/js/libs/fileupload/jquery-fileupload/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="/js/libs/fileupload/jquery-fileupload/jquery.fileupload.js"></script>
+
+    <script type="text/javascript" src="/js/libs/moment.js"></script>
+    <script type="text/javascript" src="/js/libs/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="/js/libs/locales/bootstrap-datepicker.ko.min.js"></script>
+    <script type="text/javascript" src="/js/libs/require.js"></script>
+<!--     <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=893d8cae9631317744a3fec7e1320f64&libraries=services"></script> -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=713333cce4ca0c844875ed03dcf5ea31&amp;libraries=services"></script><script charset="UTF-8" src="https://t1.daumcdn.net/mapjsapi/js/main/4.4.21/kakao.js"></script><script charset="UTF-8" src="https://t1.daumcdn.net/mapjsapi/js/libs/services/1.0.2/services.js"></script>
+
+    <!-- 네이버맵 추가 -->
+<!--     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=qhh77v2kjy&submodules=geocoder"></script> -->
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=1z9tcv1ykn&amp;submodules=geocoder"></script><script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps-geocoder.js"></script>
+    <!-- 주소API의 좌표값을 네이버좌표로 변환하기위함 -->
+    <script type="text/javascript" src="/js/common/proj4js-combined.min.js"></script>
+
+    <!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> -->
+    <!-- <script src="https://spi.maps.daum.net/imap/map_js_init/postcode.v2.js"></script> 221017 카카오 대란이후 삭제. 밑에 파일로 대체됨 -->
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+    <!-- 디자인 common js-->
+    <script type="text/javascript" src="/js/libs/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery.ui.rcarousel.js"></script>
+    <!-- 통합검색
+    <script type="text/javascript" src="/js/libs/search.js"></script>
+    -->
+    <script type="text/javascript" src="/js/common.js"></script>
+    <script type="text/javascript" src="/js/common.fileDel.js"></script>
+    <script type="text/javascript" src="/js/common.memClass.js"></script>
+    <script type="text/javascript" src="/js/common.passwordHide.js"></script>
+    <script type="text/javascript" src="/js/common.emailSelect.js"></script>
+    <!-- 2018.07.10금칙어 -->
+<!--     <script type="text/javascript" src="/applex_wdigm/applex_local.js"></script>     -->
+
+    <!-- Text to Speech(tts) -->
+    <script type="text/javascript" src="/js/common/tts.js"></script>
+    <!-- jpeg meta info -->
+    <script type="text/javascript" src="/js/common/jpegmeta.js"></script>
+
+    <script type="text/javascript" src="/js/common/common.pagination.js"></script>
+    <script type="text/javascript" src="/js/common/common.formatter.js"></script>
+    <script type="text/javascript" src="/js/common/common.handlebar.js"></script>
+    <script type="text/javascript" src="/js/common/common.util.js"></script>
+    <script type="text/javascript" src="/js/common/common.js"></script>
+    <script type="text/javascript" src="/js/common/common.pageview.js"></script>
+    <script type="text/javascript" src="/js/Backbone.View.js"></script>
+    <script type="text/javascript" src="/js/ContentView.js"></script>
+    <script type="text/javascript" src="/js/ApplicationRouter.js"></script>
+
+    <!-- TouchEn보안솔루션 js -->
+    <script type="text/javascript" src="/TouchEn/nxKey/js/TouchEnNxKey.js"></script><script type="text/javascript" charset="utf-8" src="/TouchEn/nxKey/js/TouchEnNxKey_Install.js"></script><script type="text/javascript" charset="utf-8" src="/TouchEn/cmn/exproto.js"></script><script type="text/javascript" charset="utf-8" src="/TouchEn/nxKey/js/TouchEnNxKey_Interface.js"></script>
+
+	<script type="text/javascript" src="/js/common/rsa.js"></script>
+	<script type="text/javascript" src="/js/common/jsbn.js"></script>
+	<script type="text/javascript" src="/js/common/prng4.js"></script>
+	<script type="text/javascript" src="/js/common/rng.js"></script>
+    <!-- 네이버 애널리틱스 ID 및 스크립트 -->
+    <!-- <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+        if (!wcs_add)
+            var wcs_add = {};
+        wcs_add["wa"] = "bfa707cc689570";
+        if (window.wcs) {
+            wcs_do();
+        }
+    </script> -->
+<script type="text/javascript">
+        Kakao.init('528603cb5ab72e65ecce0fb2d90e599e');
+        jQuery.browser = {};
+        jQuery.browser.mozilla = /mozilla/.test(navigator.userAgent.toLowerCase()) && !/webkit/.test(navigator.userAgent.toLowerCase());
+        jQuery.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());
+        jQuery.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());
+        jQuery.browser.msie = /msie/.test(navigator.userAgent.toLowerCase());
+        jQuery(function($){
+            $("body").on('hidden.bs.modal', '.modal', function(data){
+                if($ModalData.target){
+                    $('#'+$ModalData.target).focus();
+                }
+                $ModalData = new Object();
+                $(this).removeData('bs.modal');
+            });
+            $( ".bannerList ").rcarousel({
+                margin: 40
+            });
+
+            $( ".bannerRight" )
+                .add( ".bannerLeft" )
+                .hover(
+                    function() {
+                        $( this ).css( "opacity", 0.7 );
+                    },
+                    function() {
+                        $( this ).css( "opacity", 1.0 );
+                    }
+                );
+        });
+
+        /*인증샷 이벤트 게시판으로 이동*/
+        function goProofShotEvent(){
+            var eventCode = 'EVT03';/*임의의 코드. 이전과 다른 이벤트면 코드 바꿔줘야함.*/
+            var reqUrl = '/api/v1/portal/proofshotevent/count';
+            /*인증샷 이벤트 참여 여부 체크*/
+             if (window.globals && typeof window.globals.currentUser !== 'undefined'){ /*로그인 한 경우 만 타도록*/
+                reqUrl = reqUrl + '?C_EVENT_CODE='+eventCode;
+                reqUrl = reqUrl + '&USER_ID='+window.globals.currentUser.user_id;
+
+                $.ajax({
+                    url:reqUrl,
+                    type:'get',
+                    async: 'false', /*참여여부 체크해야하므로 비동기*/
+                    success:function(data){
+                        if(data.totalCnt > 0){
+                            alert('인증샷 이벤트에 이미 참여하였습니다.')
+                        }
+                    }
+                });
+            }
+            /*이벤트 페이지로 이동.*/
+             location.href = '#/proofshotevent/proofShotEvent';
+        }
+
+        /*자가점검 게시판으로 이동*/
+        function goSafeSelfChk(){
+            location.href = '#/safeselfchk/safeSelfChk';
+        }
+
+        function goWebtoon(){
+            alert(222);
+            location.href = '#/safeinformation/resourceRoom/58380';
+        }
+
+        function goVideo(){
+            location.href = '#/safeinformation/educationVideo/58489';
+        }
+
+    </script>
+
+<script type="text/javascript" async="" src="https://ssl.pstatic.net/melona/libs/gfp-nac-module/synchronizer.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="main/login/login" src="/js/portal/main/login/login.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="main" src="/js/portal/main.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="safereport/safeReport" src="/js/portal/safereport/safeReport.js"></script><script src="/applex_wdigm/applex_local.js"></script><script src="/applex_wdigm/policy.js"></script><script src="/applex_wdigm/b_word.js"></script><script src="/applex_wdigm/applet/wdigm_constain.js"></script><script src="/applex_wdigm/applet/wdigm_lib.js"></script><script src="/applex_wdigm/applet/wdigm_expr.js"></script><script src="/applex_wdigm/applet/wdigm_api.js"></script><script src="/applex_wdigm/applet/alert/js/jquery.ui.draggable.js"></script><script src="/applex_wdigm/applet/alert/js/jquery.alerts.js"></script><link rel="stylesheet" type="text/css" media="screen" href="/applex_wdigm/applet/alert/css/jquery.alerts.css"><link rel="stylesheet" type="text/css" media="screen" href="/applex_wdigm/applet/alert/css/ui.alert.css"><link type="text/css" rel="stylesheet" href="https://www.safetyreport.go.kr/raonkupload/css/raonkupload.popup.min.css?ver=2018.1610833.1315.01"><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="touchEn/install" src="/js/portal/touchEn/install.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="safereport/safereport1" src="/js/portal/safereport/safereport1.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="safereport/safeReport3" src="/js/portal/safereport/safeReport3.js"></script></head>
+<body class="PC main">
+<!-- CSS only 로딩 스피너 -->
+<!-- 사용시 </body> 바로 윗쪽에 삽입합니다. -->
+<!-- admin_common.css 에 정의됨 -->
+<div class="loading">
+    <div class="loading_spinner">
+        <div class="sk-circle1 sk-circle"></div>
+        <div class="sk-circle2 sk-circle"></div>
+        <div class="sk-circle3 sk-circle"></div>
+        <div class="sk-circle4 sk-circle"></div>
+        <div class="sk-circle5 sk-circle"></div>
+        <div class="sk-circle6 sk-circle"></div>
+        <div class="sk-circle7 sk-circle"></div>
+        <div class="sk-circle8 sk-circle"></div>
+        <div class="sk-circle9 sk-circle"></div>
+        <div class="sk-circle10 sk-circle"></div>
+        <div class="sk-circle11 sk-circle"></div>
+        <div class="sk-circle12 sk-circle"></div>
+    </div>
+</div>
+<div class="loading2">
+    <div class="loading_spinner">
+        <div class="sk-circle1 sk-circle"></div>
+        <div class="sk-circle2 sk-circle"></div>
+        <div class="sk-circle3 sk-circle"></div>
+        <div class="sk-circle4 sk-circle"></div>
+        <div class="sk-circle5 sk-circle"></div>
+        <div class="sk-circle6 sk-circle"></div>
+        <div class="sk-circle7 sk-circle"></div>
+        <div class="sk-circle8 sk-circle"></div>
+        <div class="sk-circle9 sk-circle"></div>
+        <div class="sk-circle10 sk-circle"></div>
+        <div class="sk-circle11 sk-circle"></div>
+        <div class="sk-circle12 sk-circle"></div>
+    </div>
+    <div class="txt">첨부파일 업로드 중입니다.</div>
+</div>
+<!--// 로딩 스피너 -->
+<div id="wrapper">
+    <ul class="skipNavi">
+        <li><a href="#content">본문바로가기</a></li>
+    </ul>
+    <!-- #header -->
+    <header id="header" class="clearfix">
+        <h1><a href="#main"><span class="hide2">안전신문고</span></a></h1>
+        <div class="myinfo">
+            <ul>
+                <li class="event" id="beforeEvent"><a href="https://forms.gle/S2xZwhkA6iHbXPZ76" target="_blank" title="새 창열림">이벤트</a></li>
+                <li class="event" id="afterEvent" style="display:none"><a href="https://forms.gle/S2xZwhkA6iHbXPZ76" target="_blank" title="새 창열림">이벤트</a></li>
+                <li>
+                <a href="#/main/login/login" id="liLogin" style="display: none;">로그인</a>
+                <a href="javascript:;" onclick="javascript:LoginUtil.logout(1);" id="liLogout" style="">로그아웃</a>
+                </li>
+                <li id="liJoinMember" style="display: none;"><a href="#/member/memberMain">회원가입</a></li>
+                <li id="liMypage" style=""><a href="#/mypage/mysafereport">마이페이지</a></li>
+                <li id="liSafeSheriff" style="display:none"><a href="#/safesheriff/safeSheriff">안전보안관 게시판</a></li>
+                <li id="liSafeDiary"><a href="#/mypage/mySafeDiary" style="color: yellow;">안전일기</a></li>
+                <li id="EngBtn"><a href="javascript:;" onclick="javascript:LoginUtil.logout(2);">English</a></li>
+
+            </ul>
+        </div>
+        <div class="gnbWrap" style="height:0;">
+            <h2 class="hide2">주메뉴</h2>
+            <div class="gnbTxt">
+                <div class="aniTxt">
+                    국민과 함께 만드는<br>
+                    <strong>대한민국 안전신고 생활화</strong>
+                </div>
+                <div class="aniWrap">
+                    <div class="build"></div>
+                    <div class="tree"></div>
+                    <div class="people"></div>
+                    <div class="cloud1"></div>
+                    <div class="cloud2"></div>
+                </div>
+            </div>
+        </div>
+        <nav class="gnb">
+            <h2 class="hide2">주메뉴</h2>
+            <ul class="gnbNav">
+            <li><a href="#safereport/safereport">신고하기</a><ul id="0000"><li id="subMenu_0001" class="menu on"><a href="#safereport/safereport">안전신고</a></li><li id="subMenu_0002" class="menu"><a href="#safereport/pblcsafereport1">범죄예방</a></li><li id="subMenu_0002" class="menu"><a href="#safereport/mysafereport">신고확인</a></li><li id="subMenu_0003" class="menu"><a href="#safereport/safeproposal">국민안전제안</a></li><li id="subMenu_0005" class="menu"><a href="#safereport/slfSafeChkInfoList">자가 안전점검</a></li></ul></li><li><a href="#safeinformation/educationVideo">국민행동요령</a><ul id="0100"><li id="subMenu_0101" class="menu"><a href="#safeinformation/educationVideo">국민행동요령</a></li><li id="subMenu_0102" class="menu"><a href="#safeinformation/safeVideo">홍보영상</a></li></ul></li><li><a href="#safeinformation/safeNews">안전정보</a><ul id="0200"><li id="subMenu_0203" class="menu"><a href="#safeinformation/safeNews">재난안전뉴스속보</a></li><li id="subMenu_0205" class="menu"><a href="#safeinformation/lawInfo">법령정보</a></li><li id="subMenu_0206" class="menu"><a href="#safeinformation/resourceRoom">자료실</a></li><li id="subMenu_0207" class="menu"><a href="#safeinformation/mssaBoard">재난종합상황분석</a></li></ul></li><li><a href="#introduction/safeIntroduction">안전신문고 소개</a><ul id="0300"><li id="subMenu_0301" class="menu"><a href="#introduction/safeIntroduction">안전신문고 소개</a></li><li id="subMenu_0302" class="menu"><a href="#introduction/mainProcessCase">주요처리사례</a></li><li id="subMenu_0304" class="menu"><a href="#introduction/processStatus">신고처리현황</a></li><li id="subMenu_0305" class="menu"><a href="#introduction/processStatusMap">신고현황 지도</a></li><li id="subMenu_0306" class="menu"><a href="#introduction/safeSingoStatistics">안전신고 통계</a></li></ul></li><li><a href="#customercenter/notice">고객센터</a><ul id="0400"><li id="subMenu_0401" class="menu"><a href="#customercenter/notice">공지사항</a></li><li id="subMenu_0402" class="menu"><a href="#customercenter/useGuidance">이용안내</a></li><li id="subMenu_0403" class="menu"><a href="#customercenter/frequentlyAskedQuestions">자주하는 질문</a></li></ul></li><li style="display:none;"><a href="#">마이페이지</a><ul id="0500"><li id="subMenu_0501" class="menu"><a href="#mypage/mysafereport">나의 안전신고</a></li><li id="subMenu_0503" class="menu"><a href="#mypage/myAccount">회원정보관리</a></li><li id="subMenu_0504" class="menu"><a href="#mypage/secession">회원탈퇴</a></li><li id="subMenu_0507" class="menu"><a href="#mypage/slfSafeChkPrtcpntList">나의 안전점검결과</a></li><li id="subMenu_0508" class="menu"><a href="#mypage/mySafeDiary">안전일기</a></li></ul></li></ul>
+            <!-- <div class="searchlayer" tabindex="0" onkeypress="if(event.keyCode==13) {$('.searchlayer .btnSearch').trigger('click');}">
+                <button class="btnSearch"><i class="fa fa-search" ></i><span class="hide2">검색</span></button>
+            </div>
+            <div class="searchArea pc" style="display: none;">
+                <div class="top_search_box">
+                   <label for="searchTerm">검색어입력:</label>
+                    <input id="searchTerm" name="searchTermInput" type="text">
+                    <button id="btnSch" class="btnSearch"><i class="fa fa-search" ></i><span class="hide2">검색</span></button>
+                </div>
+                <p class="search_close"><a href="#" title="검색레이어창 닫기"  id="searchClose"><img src="images/side_menu_close.png" alt="닫기"></a></p>
+            </div> -->
+        </nav>
+
+        <section class="lnb">
+            <h2 class="hide2">하위메뉴</h2>
+            
+            
+            
+            
+            
+            
+        <ul><li id="subMenu_0001" class="menu on"><a href="#safereport/safereport">안전신고</a></li><li id="subMenu_0002" class="menu"><a href="#safereport/pblcsafereport1">범죄예방</a></li><li id="subMenu_0002" class="menu"><a href="#mypage/mysafereport">신고확인</a></li><li id="subMenu_0003" class="menu"><a href="#safereport/safeproposal">국민안전제안</a></li><li id="subMenu_0005" class="menu"><a href="#safereport/slfSafeChkInfoList">자가 안전점검</a></li></ul></section>
+        <!-- 모바일용검색
+        <div class="mobile_search">
+            <div class="searchlayer">
+                <button class="btnSearch"><i class="fa fa-search" ></i><span class="hide2">검색</span></button>
+            </div>
+            <div class="searchArea" style="display: none;">
+                <div class="top_search_box">
+                   <label for="searchTerm1">검색어입력:</label>
+                    <input id="searchTerm1" name="searchTermInput" type="text">
+                    <button id="btnSch1" class="btnSearch"><i class="fa fa-search" ></i><span class="hide2">검색</span></button>
+                </div>
+                <p class="search_close"><a href="#" title="검색레이어창 닫기"><img src="images/side_menu_close.png" alt="닫기"></a></p>
+            </div>
+        </div> -->
+    <button class="top_side_menu"></button><button class="close_side_menu" style="display: none;"></button></header>
+
+    <!-- #container -->
+    <div id="container" class="">
+        <section id="content" tabindex="-1" class="content"><script type="text/javascript" src="/js/common/scrollTop.js"></script>
+<script type="text/javascript" src="/raonkupload/js/raonkupload.js"></script>
+<script type="text/javascript">
+
+/* 웹접근성 . 메뉴별 제목표시 2017.03.10 */
+document.title = "안전신문고>신고서 작성"    ;
+
+
+//-->
+
+</script>
+<style>
+.useAgreeFont2{  color: #3897e1 !important; font-weight: bold !important;font-size:20px }
+</style>
+		<p class="path">
+			<a href="#" class="pathHome">
+				<span>Home</span>
+			</a>
+			<span class="arrow">&gt;</span>
+			<a href="#safereport/safereport">안전신고</a>
+			<span class="arrow">&gt;</span>
+			<a href="#" class="on">신고하기</a> 
+			
+			
+		</p>
+
+		<section id="contents">
+		<form id="frmSafeReport">
+
+			<h2 class="title">
+			신고하기
+			
+			
+			</h2><!-- 탭메뉴 -->
+        <div class="tabNavi">
+            <ul>
+                <li class=""><a href="#safereport/safereport">안전신고</a></li>
+                <li class=""><a href="#safereport/safereport2">생활불편 신고</a></li>
+                <li class="active"><a href="#safereport/safereport3">자동차·교통위반</a></li>
+            </ul>
+        </div>
+        <!-- 이용약관 시작 -->
+        <div class="tab">
+                    <article class="tabDoc">
+                        <!-- 1장 내용 -->
+                        <!-- h5 class="tit_etc">안전신고 제안 내요 </h5-->
+                        <div class="innerBox">
+                        <!-- 1.안전신고 내용입력 -->
+							<!-- 신고서작성단계 -->
+							<div class="singoStep">
+								<ul class="clearfix">
+									<li class="on active"><span class="sr-only2">현재 진행중인 단계</span><span>신고서 작성</span></li>
+									<!-- <li><span>기관선택</span></li> -->
+									<li><span>신청완료</span></li>
+								</ul>
+							</div>
+							<!-- 신고내용 -->
+							<h3 class="stitle"><span class="font_accent">자동차·교통 위반</span> 신고 내용</h3>
+							<p class="txt_intro">
+								<span class="font_accent1">제목과 내용은 접수 후 수정 등이 불가능하므로 다시 확인하시고 신청해 주시기 바랍니다.</span><br>
+								<span class="font_accent2">신청된 신고는 「공공기록물관리에 관한 법률」에 따라 공문서로 관리됩니다.</span><br>
+								<!-- 2020-11 신고분야 추가 -->
+								</p><div class="innerWrap">
+								<dl class="privacyTbl">
+									<dt>
+										<strong>[신고 분야]</strong>
+									</dt>
+									<dd class="table_bbs singo tb_sty03 f14">
+										<table width="100%" border="1">
+											<caption>신고내용 작성하는 표로 필수입력사항 : 자동차·교통위반 신고유형, 신고발생지역, 제목, 신고내용, 차량번호, 발생일자, 발생시각, 휴대전화, 인증번호 정보를 입력할 수 있습니다.</caption>
+											<tbody>
+												<tr>
+													<th rowspan="2" scope="row" class="first">경찰청 소관</th>
+													<th scope="row" class="second">교통 위반(고속도로 포함)</th>
+													<td>
+														<p>과속 운전, 난폭 운전, 보복 운전, 폭주 레이싱</p>
+														<p>신호 위반, 끼어들기 금지 위반, 진로 변경 위반, 통행 금지·제한·방법 위반, 제차 신호 조작 불이행(방향 지시등) 등</p>
+														<p>고속도로 갓길·버스전용차로 위반 등</p>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row" class="second">이륜차 위반</th>
+													<td>이륜차 인도 주행, 안전모 미착용 등</td>
+												</tr>
+												<tr>
+													<th rowspan="5" scope="row" class="first">지자체 소관</th>
+													<th scope="row" class="second">버스전용차로 위반(고속도로 제외)</th>
+													<td>일반 도로 위의 승용차 버스 전용차로 위반</td>
+												</tr>
+												<tr>
+													<th scope="row" class="second">번호판 규정 위반</th>
+													<td>
+														<p>자동차 등록 번호판 위조·변조·부정 사용</p>
+														<p>자동차 등록 번호판 가림·식별곤란·봉인 해제</p>
+														<p>임시운행 허가 번호판 기간 종료, 무등록 차량</p>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row" class="second">불법 등화, 반사판(지)가림·손상</th>
+													<td>
+														<p>등화 착색, 등화 손상, 불법 등화 설치</p>
+														<p>화물차 후부 반사판(지) 미설치 및 설치 불량</p>
+														<p>화물차 측면보호대 불량</p>
+														<p>후부안전판 불량, 철제보조범퍼 설치 등</p>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row" class="second">불법 튜닝,해체, 조작</th>
+													<td>
+														<p>튜닝 승인을 받지 않고 튜닝한 경우</p>
+														<p>승인을 받은 내용과 다르게 자동차를 튜닝한 경우</p>
+														<p>최고 속도 제한 장치 조작 또는 무단 해제</p>
+													</td>
+												</tr>
+												<tr>
+													<th scope="row" class="second">기타 자동차 안전 기준 위반</th>
+													<td>
+														<p>불법 명의 또는 무등록 자동차</p>
+														<p>도로에 자동차 무단 방치 등</p>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<!-- <ul>
+											<li><strong class="tit">교통위반(고속도로 포함)</strong> <span class="desc">과속운전, 난폭운전, 보복운전, 폭주레이싱<br>신호위반, 끼어들기 금지 위반, 진로변경 위반, 통행 금지·제한·방법 위반, 제차 신호 조작 불이행(방향지시등) 등<br>고속도로 갓길·버스전용차로 위반 등</span></li>
+											<li><strong class="tit">이륜차 위반</strong> <span class="desc">이륜차 인도 주행, 안전모 미착용 등</span></li>
+											<li><strong class="tit">적재물 추락방지, 중량·용량 위반</strong> <span class="desc">화물차가 적재물 미고정 또는 안전 덮개를 하지 않고 운행하는 경우<br>화물차 승차 인원, 적재 중량·용량 초과</span></li>
+											<li><strong class="tit">버스전용차로 위반(고속도로제외)</strong> <span class="desc">일반 도로 위의 승용차 버스 전용차로 위반</span></li>
+											<li><strong class="tit">번호판 규정 위반</strong> <span class="desc">자동차 등록번호판 위조·변조·부정사용<br>자동차 등록번호판 가림·식별곤란·봉인해제<br>임시운행허가번호판 기간 종료, 무등록 차량</span></li>
+											<li><strong class="tit">불법등화, 반사판(지)가림·손상</strong> <span class="desc">동화 착색, 동화 손상, 불법등화 설치<br>화물차 후부 반사판(지) 미설치 및 설치 불량<br>화물차 측면보호대 불량<br>후부안전판 불량, 철제보조범퍼 설치 등</span></li>
+											<li><strong class="tit">불법 튜닝,해체, 조작</strong> <span class="desc">튜닝 승인을 받지 않고 튜닝한 경우<br>승인을 받은 내용과 다르게 자동차를 튜닝한 경우<br>최고속도 제한장치 조작 또는 무단 해제</span></li>
+											<li><strong class="tit">기타 자동차 안전기준 위반</strong> <span class="desc">불법 명의 또는 무등록 자동차<br>도로에 자동차 무단 방치 등</span></li>
+										</ul> -->
+									</dd>
+									</dl>
+									</div>
+								<span class="font_accent1" style="color:red;font-weight:bold">※ 긴급 상황 신고는 119 또는 112!</span><br>
+								<span class="font_accent1">※ 안전신문고 포털에서는 불법 주정차 신고 접수 기능을 운영하지 않으니
+								스마트폰에 안전신문고 앱을 설치해서 신고해 주시기 바랍니다.</span>
+							<p></p>
+							<p class="txt_comment right"><i class="fa fa-check ico_check"><span>*</span></i><span>는 필수 입력 사항입니다.</span></p>
+							<!-- 신고 작성하기 표 -->
+			<div class="table_bbs singo tb_sty03"> <!-- shin 클래스 tb_sty03 추가 -->
+				<table width="100%" border="1">
+					<caption>
+					신고내용 작성하는 표
+					</caption>
+					<tbody><tr>
+                        <th scope="row">자동차·교통 위반 신고 유형 <i class="fa fa-check ico_check"><span>*</span></i></th>
+                        <td colspan="3">
+                            <span class="bbs_sh">
+                                        <select name="ReportTypeSelect" id="ReportTypeSelect" title="자동차·교통위반 신고 선택"><!-- disabled="disabled" -->
+                                        <option value="">유형을 선택해 주세요.</option><option value="02">교통위반(고속도로 포함)</option><option value="03">이륜차 위반</option><option value="10">난폭/보복운전</option><option value="05">버스전용차로 위반(고속도로제외)</option><option value="06">번호판 규정 위반</option><option value="07">불법등화, 반사판(지) 가림·손상</option><option value="08">불법 튜닝, 해체, 조작</option><option value="09">기타 자동차 안전기준 위반</option></select>
+										<input type="hidden" name="C_SSNPC_CD" id="C_SSNPC_CD" value="TV">
+										<input type="hidden" name="C_SSNPC_TYPE" id="C_SSNPC_TYPE" value="02">
+                            </span>
+							<button type="button" class="button btnWmd getNum" id="moreViewBtn">설명 보기</button>
+
+                        </td>
+                    </tr>
+					<tr>
+						<th scope="row">사진/동영상</th>
+						<td colspan="3">
+							<span id="uploadHoder"><div id="raonkuploader_holder_kupload1" style="width:100%; height:250px"><iframe id="raonkuploader_frame_kupload1" title="RAONKUpload Area" frameborder="0" src="" style="width: 100%; height: 100%; border-width: 0px;"></iframe></div></span>
+							<span class="txt_comment"><strong class="star">*</strong> 사진, 문서 각 30MB, 동영상 각 130MB, 총 합 180MB까지 첨부 가능합니다.</span>
+							<br>
+							<span class="txt_comment"><strong class="star">*</strong> 용량 초과로 인해 첨부가 불가능할 경우 영상 편집 후 첨부해 주세요.</span>
+							<button type="button" title="영상편집" id="btnVdoEdit" class="button btnWmd getNum" onclick="$$.openVideoTrimPup()">영상 편집하기</button>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><span>신고 발생 지역</span><i class="fa fa-check ico_check"><span>*</span></i></th>
+						<td colspan="3">
+							<article class="article">
+								[위치 찾기]를 이용하여 대략의 주소를 검색한 뒤, 지도에서 정확한 위치를 클릭해 주세요.
+								<br>도로명 주소가 존재하지 않는 지점은 지번 주소로 표기 됩니다.
+							</article>
+							<article class="article">
+								<button type="button" title="새창" id="btnFindLoc" class="button btnWmd blue" onclick="$$.fnFindLoaction()">위치 찾기</button>
+								<button type="button" title="새창" id="btnCancelReport" class="button btnWmd green" onclick="window.open('/popup/#/safeReportPlaceSearch', '_blank', 'width=500, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no' ).postMessage('');">키워드 검색</button>
+								<button type="button" title="새창" id="btnLcBkmk" class="button btnWmd yellow" onclick="$$.fnOpenLcBkmk();">즐겨 찾기</button>
+
+								<span class="font_accent1" id="add1" title="">서울특별시 종로구 사직로 161</span>
+								<span id="add1Btn" class="icon-favorites" onclick="$$.fnCntrlLcBkmk();" style=""></span>
+								<input type="hidden" id="SMS_CRTFC_ID" name="SMS_CRTFC_ID" value="">
+								<input type="hidden" id="SMS_CRTFC_AT" name="SMS_CRTFC_AT" value="Y">
+								<input type="hidden" id="C_A_W" name="C_A_W" value="">
+								<input type="hidden" id="C_A_E" name="C_A_E" value="">
+								<input type="hidden" id="C_ZIP" name="C_ZIP" value="16471">
+								<input type="hidden" id="C_ZIP_TYPE" name="C_ZIP_TYPE" value="R">
+								<input type="hidden" id="RN_ADRES" name="RN_ADRES" value="서울특별시 종로구 사직로 161">
+								<input type="hidden" id="C_A_ADD1" name="C_A_ADD1" value="">
+								<input type="hidden" id="C_A_ADD2" name="C_A_ADD2" value="서울특별시 종로구 세종로 1-1">
+								<input type="hidden" id="C_ADD1" name="C_ADD1" value="경기도 수원시 팔달구 중부대로 94-12 (인계동)">
+								<input type="hidden" id="C_ADD2" name="C_ADD2" value="센트빌 504호">
+							</article>
+							<article class="daumMap article">
+								<div id="map" style="width: 100%; height: 321px; position: relative; overflow: hidden; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_tile.png&quot;);"><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url(&quot;https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;) 7 5, url(&quot;https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;), default;"><div style="position: absolute;"><div style="position: absolute; z-index: 0;"></div><div style="position: absolute; z-index: 1; left: 0px; top: 0px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2003/888.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -207px; top: 76px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2003/889.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 49px; top: 76px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2003/890.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 305px; top: 76px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2003/891.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 561px; top: 76px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2003/892.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 817px; top: 76px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2004/888.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -207px; top: -180px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2004/889.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 49px; top: -180px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2004/890.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 305px; top: -180px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2004/891.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 561px; top: -180px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2004/892.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 817px; top: -180px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2005/888.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -207px; top: -436px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2005/889.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 49px; top: -436px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2005/890.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 305px; top: -436px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2005/891.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 561px; top: -436px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2005/892.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 817px; top: -436px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"></div><div style="position: absolute; z-index: 1;"></div><div style="width: 840px; height: 321px; position: absolute; z-index: 1;"></div><div style="position: absolute; z-index: 1;"><svg version="1.1" style="stroke: none; stroke-dashoffset: 0.5; stroke-linejoin: round; fill: none; transform: translateZ(0px); position: absolute; width: 4200px; height: 1605px; left: -1680px; top: -642px;" viewBox="0 0 4200 1605"><defs></defs></svg></div><div style="position: absolute; z-index: 1; width: 100%; height: 0px; transform: translateZ(0px);"><div style="position: absolute; margin: -39px 0px 0px -14px; z-index: 0; left: 420px; top: 160px;"><img draggable="false" src="https://t1.daumcdn.net/mapjsapi/images/marker.png" alt="" role="presentation" title="" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; clip: rect(0px, 29px, 42px, 0px); top: 0px; left: 0px; width: 29px; height: 42px;"><img src="https://t1.daumcdn.net/mapjsapi/images/transparent.gif" alt="" role="presentation" draggable="false" usemap="#daum.maps.Marker.Area:2" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; width: 29px; height: 42px;"><map id="daum.maps.Marker.Area:2" name="daum.maps.Marker.Area:2"><area href="javascript:void(0)" alt="" role="presentation" shape="poly" coords="14,39,9,27,4,21,1,16,1,10,4,4,11,0,18,0,25,4,28,10,28,16,25,21,20,27" title="" style="-webkit-tap-highlight-color: transparent;"></map></div></div></div></div><div style="position: absolute; cursor: default; z-index: 1; margin: 0px 6px; height: 19px; line-height: 14px; left: 0px; bottom: 0px; color: rgb(0, 0, 0);"><div style="color: rgb(0, 0, 0); text-align: center; font-size: 10px; float: left;"><div style="float: left; margin: 2px 3px 0px 4px; height: 6px; transition: width 0.1s; border-top: none rgb(0, 0, 0); border-right: 2px solid rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); border-left: 2px solid rgb(0, 0, 0); border-image: initial; width: 46px;"></div><div style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">50m</div></div><div style="margin: 0px 4px; float: left;"><a target="_blank" href="http://map.kakao.com/" style="float: left; width: 32px; height: 10px;"><img src="https://t1.daumcdn.net/mapjsapi/images/m_bi_b.png" alt="Kakao 맵으로 이동(새창열림)" style="float: left; width: 32px; height: 10px; border: none;"></a><div style="font: 11px / 11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div></div></div><div style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"><div style="width: 106px; height: 32px; box-sizing: content-box; background-color: rgb(255, 255, 255); padding: 2px; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px; position: absolute; left: 727px; top: 3px;"><button draggable="false" title="지도" type="button" style="float: left; cursor: default; width: 43px; height: 32px; user-select: none; -webkit-user-drag: none; border: none; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -5px -183px / 116px 264px no-repeat; color: rgb(255, 255, 255); font-weight: bold;"></button><button draggable="false" title="스카이뷰" type="button" style="float: left; cursor: pointer; width: 63px; height: 32px; user-select: none; -webkit-user-drag: none; border: none; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -48px -183px / 116px 264px no-repeat; color: rgb(0, 0, 0); font-weight: normal;"></button></div><div style="width: 32px; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px; position: absolute; left: 805px; top: 42px;"><button draggable="false" title="확대" type="button" style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; border-top: none; border-right: none; border-bottom: 1px solid rgb(226, 226, 226); border-left: none; border-image: initial; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px 0px / 116px 264px no-repeat rgb(255, 255, 255); border-radius: 3px 3px 0px 0px;"></button><div style="float: left; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_zoom_control.png&quot;) repeat; padding: 7px 0px; transition: height, margin 0.1s;"><div style="cursor: pointer; position: relative; background-size: 116px 264px; transition: height 0.1s; margin: 2px 0px; display: block; width: 32px; height: 104px;"><div style="position: absolute; width: 4px; height: 100%; background-color: rgb(51, 150, 255); left: 50%; margin: 0px 0px 0px -2px;"><div style="width: 4px; height: 2px; margin-bottom: -2px; bottom: 0px; position: absolute; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -50px -127px / 116px 264px;"></div><div style="width: 4px; height: 2px; margin-top: -2px; top: 0px; position: absolute; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px -100px / 116px 264px;"></div></div><div style="position: absolute; background-color: rgb(204, 204, 204); transition: height 0.1s; left: 50%; margin: 0px 0px 0px -2px; width: 4px; height: 16px;"></div><div style="cursor: row-resize; position: absolute; width: 20px; height: 10px; margin: -4px 0px 0px -10px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px -80px / 116px 264px; left: 50%; transition: top 0.1s; top: 16px;"></div></div></div><button draggable="false" title="축소" type="button" style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; border-top: 1px solid rgb(226, 226, 226); border-right: none; border-bottom: none; border-left: none; border-image: initial; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px -32px / 116px 264px no-repeat rgb(255, 255, 255); border-radius: 0px 0px 3px 3px; margin: 0px;"></button><div style="display: none; position: absolute; margin: 41px 0px 0px -30px; background-size: 116px 264px; width: 30px; height: 104px;"><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -80px / 116px 264px; left: 0px; top: 8px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -100px / 116px 264px; left: 0px; top: 32px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -120px / 116px 264px; left: 0px; top: 64px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -140px / 116px 264px; left: 0px; top: 80px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -160px / 116px 264px; left: 0px; top: 96px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; touch-action: none; cursor: url(&quot;https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;) 7 5, url(&quot;https://t1.daumcdn.net/mapjsapi/images/cursor/openhand.cur.ico&quot;), default;"><div style="position: absolute;"><div style="position: absolute; z-index: 0;"></div><div style="position: absolute; z-index: 1; left: 0px; top: 0px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2003/888.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -207px; top: 76px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2003/889.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 49px; top: 76px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2003/890.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 305px; top: 76px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2003/891.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 561px; top: 76px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2003/892.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 817px; top: 76px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2004/888.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -207px; top: -180px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2004/889.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 49px; top: -180px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2004/890.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 305px; top: -180px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2004/891.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 561px; top: -180px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2004/892.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 817px; top: -180px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2005/888.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: -207px; top: -436px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2005/889.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 49px; top: -436px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2005/890.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 305px; top: -436px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2005/891.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 561px; top: -436px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"><img src="https://mts.daumcdn.net/api/v1/tile/PNGSD02/v17_zc9q7/latest/3/2005/892.png" alt="" draggable="false" style="position: absolute; user-select: none; -webkit-user-drag: none; min-width: 0px; min-height: 0px; max-width: none; max-height: none; left: 817px; top: -436px; opacity: 1; transition-property: opacity; transition-duration: 0.2s; transition-timing-function: ease; width: 256px; height: 256px;"></div><div style="position: absolute; z-index: 1;"></div><div style="width: 840px; height: 321px; position: absolute; z-index: 1;"></div><div style="position: absolute; z-index: 1;"><svg version="1.1" style="stroke: none; stroke-dashoffset: 0.5; stroke-linejoin: round; fill: none; transform: translateZ(0px); position: absolute; width: 4200px; height: 1605px; left: -1680px; top: -642px;" viewBox="0 0 4200 1605"><defs></defs></svg></div><div style="position: absolute; z-index: 1; width: 100%; height: 0px; transform: translateZ(0px);"><div style="position: absolute; margin: -39px 0px 0px -14px; z-index: 0; left: 420px; top: 160px;"><img draggable="false" src="https://t1.daumcdn.net/mapjsapi/images/marker.png" alt="" role="presentation" title="" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; clip: rect(0px, 29px, 42px, 0px); top: 0px; left: 0px; width: 29px; height: 42px;"><img src="https://t1.daumcdn.net/mapjsapi/images/transparent.gif" alt="" role="presentation" draggable="false" usemap="#daum.maps.Marker.Area:3" style="min-width: 0px; min-height: 0px; max-width: 99999px; max-height: none; border: 0px; display: block; position: absolute; user-select: none; -webkit-user-drag: none; width: 29px; height: 42px;"><map id="daum.maps.Marker.Area:3" name="daum.maps.Marker.Area:3"><area href="javascript:void(0)" alt="" role="presentation" shape="poly" coords="14,39,9,27,4,21,1,16,1,10,4,4,11,0,18,0,25,4,28,10,28,16,25,21,20,27" title="" style="-webkit-tap-highlight-color: transparent;"></map></div></div></div></div><div style="position: absolute; cursor: default; z-index: 1; margin: 0px 6px; height: 19px; line-height: 14px; left: 0px; bottom: 0px; color: rgb(0, 0, 0);"><div style="color: rgb(0, 0, 0); text-align: center; font-size: 10px; float: left;"><div style="float: left; margin: 2px 3px 0px 4px; height: 6px; transition: width 0.1s; border-top: none rgb(0, 0, 0); border-right: 2px solid rgb(0, 0, 0); border-bottom: 2px solid rgb(0, 0, 0); border-left: 2px solid rgb(0, 0, 0); border-image: initial; width: 46px;"></div><div style="float: left; margin: 0px 4px 0px 0px; font-family: AppleSDGothicNeo-Regular, 돋움, dotum, sans-serif; font-weight: bold; color: rgb(0, 0, 0);">50m</div></div><div style="margin: 0px 4px; float: left;"><a target="_blank" href="http://map.kakao.com/" style="float: left; width: 32px; height: 10px;"><img src="https://t1.daumcdn.net/mapjsapi/images/m_bi_b.png" alt="Kakao 맵으로 이동(새창열림)" style="float: left; width: 32px; height: 10px; border: none;"></a><div style="font: 11px / 11px Arial, Tahoma, Dotum, sans-serif; float: left;"></div></div></div><div style="cursor: auto; position: absolute; z-index: 2; left: 0px; top: 0px;"><div style="width: 106px; height: 32px; box-sizing: content-box; background-color: rgb(255, 255, 255); padding: 2px; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px; position: absolute; left: 727px; top: 3px;"><button draggable="false" title="지도" type="button" style="float: left; cursor: default; width: 43px; height: 32px; user-select: none; -webkit-user-drag: none; border: none; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -5px -183px / 116px 264px no-repeat; color: rgb(255, 255, 255); font-weight: bold;"></button><button draggable="false" title="스카이뷰" type="button" style="float: left; cursor: pointer; width: 63px; height: 32px; user-select: none; -webkit-user-drag: none; border: none; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -48px -183px / 116px 264px no-repeat; color: rgb(0, 0, 0); font-weight: normal;"></button></div><div style="width: 32px; border-radius: 3px; box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 2px 0px; position: absolute; left: 805px; top: 42px;"><button draggable="false" title="확대" type="button" style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; border-top: none; border-right: none; border-bottom: 1px solid rgb(226, 226, 226); border-left: none; border-image: initial; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px 0px / 116px 264px no-repeat rgb(255, 255, 255); border-radius: 3px 3px 0px 0px;"></button><div style="float: left; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/bg_zoom_control.png&quot;) repeat; padding: 7px 0px; transition: height, margin 0.1s;"><div style="cursor: pointer; position: relative; background-size: 116px 264px; transition: height 0.1s; margin: 2px 0px; display: block; width: 32px; height: 104px;"><div style="position: absolute; width: 4px; height: 100%; background-color: rgb(51, 150, 255); left: 50%; margin: 0px 0px 0px -2px;"><div style="width: 4px; height: 2px; margin-bottom: -2px; bottom: 0px; position: absolute; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -50px -127px / 116px 264px;"></div><div style="width: 4px; height: 2px; margin-top: -2px; top: 0px; position: absolute; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px -100px / 116px 264px;"></div></div><div style="position: absolute; background-color: rgb(204, 204, 204); transition: height 0.1s; left: 50%; margin: 0px 0px 0px -2px; width: 4px; height: 16px;"></div><div style="cursor: row-resize; position: absolute; width: 20px; height: 10px; margin: -4px 0px 0px -10px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px -80px / 116px 264px; left: 50%; transition: top 0.1s; top: 16px;"></div></div></div><button draggable="false" title="축소" type="button" style="float: left; cursor: pointer; width: 32px; height: 32px; user-select: none; -webkit-user-drag: none; border-top: 1px solid rgb(226, 226, 226); border-right: none; border-bottom: none; border-left: none; border-image: initial; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) -40px -32px / 116px 264px no-repeat rgb(255, 255, 255); border-radius: 0px 0px 3px 3px; margin: 0px;"></button><div style="display: none; position: absolute; margin: 41px 0px 0px -30px; background-size: 116px 264px; width: 30px; height: 104px;"><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -80px / 116px 264px; left: 0px; top: 8px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -100px / 116px 264px; left: 0px; top: 32px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -120px / 116px 264px; left: 0px; top: 64px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -140px / 116px 264px; left: 0px; top: 80px;"></div><div style="position: absolute; width: 29px; height: 15px; margin: -6px 0px 0px; background: url(&quot;https://t1.daumcdn.net/mapjsapi/images/control.png&quot;) 0px -160px / 116px 264px; left: 0px; top: 96px;"></div></div></div></div></div>
+							</article>
+							<div id="box" style="display:none;">
+								<div id="staticMap" style="width:100%;height:321px;"></div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="C_A_TITLE">제목</label><i class="fa fa-check ico_check"><span>*</span></i></th>
+						<td colspan="3"><input type="text" id="C_A_TITLE" name="C_A_TITLE" title="제목" value="" class="inputWmax" maxlength="150" placeholder="최소 2자, 최대 150자 작성 가능"></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="C_A_CONTENTS">신고 내용</label><i class="fa fa-check ico_check"><span>*</span></i></th>
+						<td colspan="3"><textarea type="text" id="C_A_CONTENTS" name="C_A_CONTENTS" title="신고내용" class="inputWmax" maxlength="1600" placeholder="교통 위반 사항을 신고해 주세요.(경찰청 요청 사항: 신고내용에 위반 행위를 구체적으로 적어 주시기 바라며, 첨부하는 영상매체에 위반 일시(년·월·일·시·분)가 확인되지 않을 시 처분이 어려울 수 있습니다.)"></textarea>
+						<span id="remaining">(<span class="count">0</span>/<span class="max">1600</span>)</span>
+
+	                        <div class="ota_check_td">
+	    					<input type="checkbox" id="typoChk" checked=""> <label for="typoChk"><span class="txt_lineH">추천 단어</span></label>
+	    					</div>
+                        </td>
+							<!--
+                        <div class="contentAdd">
+							<div class="copy_td"><span class="copy_txt off">
+	                            <span class="ico_type"></span><span class="txt">내용복사</span>
+	                        </span></div>
+                        </div> -->
+					</tr>
+					<tr>
+						<th scope="row"><label for="VHRNO">차량 번호</label><i class="fa fa-check ico_check"><span>*</span></i></th>
+						<td colspan="3"><input type="text" id="VHRNO" name="VHRNO" title="차량번호" value="" class="inputWmd" maxlength="10" placeholder="차량 번호 입력">
+							<div class="ota_check_td">
+								<input type="hidden" id="noVhrNo" name="noVhrNo">
+								<input type="checkbox" id="chkNoVhrNo"> <label for="chkNoVhrNo"><span class="txt_lineH">차량 번호 없음</span></label>
+							</div>
+					</td>
+
+					</tr>
+					<tr>
+						<th scope="row"><label for="DEVEL_DATE">발생 일자</label><i class="fa fa-check ico_check"><span>*</span></i></th>
+						<td colspan="3">
+							<div class="input-group date develDate inputWmd" style="margin:0px;">
+								<input type="text" class="form-control input-sm " size="8" title="발생 일자" id="DEVEL_DATE" name="DEVEL_DATE"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+							</div>
+                		</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="DEVEL_TIME_HH">발생 시각</label><i class="fa fa-check ico_check"><span>*</span></i></th>
+						<td colspan="3">
+							<!-- <input type="text" name="DEVEL_TIME" id="DEVEL_TIME" value="" maxlength="10"  class="inputWmd develTime"> -->
+							<!--
+								@todo 발생 시각 수정
+							-->
+							<input type="hidden" name="DEVEL_TIME" id="DEVEL_TIME" value="19:54">
+							<select id="DEVEL_TIME_HH" name="DEVEL_TIME_HH" title="발생 시간">
+								<option value="00">00</option>
+								<option value="01">01</option>
+								<option value="02">02</option>
+								<option value="03">03</option>
+								<option value="04">04</option>
+								<option value="05">05</option>
+								<option value="06">06</option>
+								<option value="07">07</option>
+								<option value="08">08</option>
+								<option value="09">09</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+							</select>
+							시
+							<select id="DEVEL_TIME_MM" name="DEVEL_TIME_MM" title="발생 분">
+								<option value="00">00</option>
+								<option value="01">01</option>
+								<option value="02">02</option>
+								<option value="03">03</option>
+								<option value="04">04</option>
+								<option value="05">05</option>
+								<option value="06">06</option>
+								<option value="07">07</option>
+								<option value="08">08</option>
+								<option value="09">09</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+								<option value="24">24</option>
+								<option value="25">25</option>
+								<option value="26">26</option>
+								<option value="27">27</option>
+								<option value="28">28</option>
+								<option value="29">29</option>
+								<option value="30">30</option>
+								<option value="31">31</option>
+								<option value="32">32</option>
+								<option value="33">33</option>
+								<option value="34">34</option>
+								<option value="35">35</option>
+								<option value="36">36</option>
+								<option value="37">37</option>
+								<option value="38">38</option>
+								<option value="39">39</option>
+								<option value="40">40</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="43">43</option>
+								<option value="44">44</option>
+								<option value="45">45</option>
+								<option value="46">46</option>
+								<option value="47">47</option>
+								<option value="48">48</option>
+								<option value="49">49</option>
+								<option value="50">50</option>
+								<option value="51">51</option>
+								<option value="52">52</option>
+								<option value="53">53</option>
+								<option value="54">54</option>
+								<option value="55">55</option>
+								<option value="56">56</option>
+								<option value="57">57</option>
+								<option value="58">58</option>
+								<option value="59">59</option>
+							</select>
+							분
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="C_PHONE2">휴대전화</label><i class="fa fa-check ico_check"><span>*</span></i></th>
+						<td colspan="3">
+							<input type="text" id="C_PHONE2" name="C_PHONE2" value="" class="inputWmd cellPhone" placeholder="휴대전화 번호 입력" disabled="">
+							<button type="button" class="button btnWmd getNum" id="authSelectBtn" style="display: none;">인증 번호 받기</button>
+							<!-- <button type="button" class="button btnWmd getNum" id="btnRequestPhoneAuthNo" onclick="$$.fnSmsUtil.fnRequestPhoneAuthNo()">인증번호 받기</button> -->
+						</td>
+					</tr>
+					<tr id="authNumberTr" style="display: none;">
+						<th scope="row"><label for="phoneAuthNumber">인증 번호</label><i class="fa fa-check ico_check"><span>*</span></i></th>
+						<td colspan="3">
+							<div id="divPhoneAuthNumber" style="display: none;">
+								<input type="text" id="phoneAuthNumber" title="인증 번호" name="AUTH_NUMBER" value="" class="inputWmd" placeholder="인증 번호 입력">
+								<button type="button" class="button btnWmd" id="btnCheckPhoneAuth" onclick="$$.fnSmsUtil.fnCheckPhoneAuth()">확인</button>
+									&nbsp;남은 시간 : <span class="font_accent3"><strong id="countTimeStr"></strong></span>
+								<button type="button" class="button medium white" id="btnNeedMoreTime" onclick="$$.fnSmsUtil.fnNeedMoreTime()">시간 연장</button>
+							</div>
+							<span id="spanCountTimeComplete" style="">
+								&nbsp;확인되었습니다.
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">신고 내용 공유</th>
+						<td colspan="3">
+							<article class="inputWmd dsp_inblck">
+								<div class="radio">
+									<label for="C_OPEN1">
+										<input type="radio" name="C_OPEN" id="C_OPEN1" checked="" value="0" tabindex="-1">
+										<span class="cr" tabindex="0" onkeypress="if(event.keyCode==13) {javascript:$$.KeyCheck('C_OPEN','0'); return false;}"><i class="cr-icon fa fa-circle"></i></span>
+										<span class="txt">예</span>
+									</label>
+									<label for="C_OPEN2">
+										<input type="radio" name="C_OPEN" id="C_OPEN2" value="1" tabindex="-1">
+										<span class="cr" tabindex="0" onkeypress="if(event.keyCode==13) {javascript:$$.KeyCheck('C_OPEN','1'); return false;}"><i class="cr-icon fa fa-circle"></i></span>
+										<span class="txt">아니요</span>
+									</label>
+								</div>
+							</article>
+
+							<!-- 내용 보기 가리기 -->
+							<button type="button" class="button btnWmd moreBtn" data-toggle="collapse" data-target="#singoOpen" aria-expanded="false" aria-controls="singoOpen">내용 보기 <i id="singoOpenI" class="fa fa-angle-down"></i></button>
+							<div class="moreView">
+								<article class="moreDoc collapse done" id="singoOpen" style="display: none;">
+									<p>공유에 동의하시면 신고 내용과 답변내용이 신고업무 처리나 정부정책에 반영하기 위해 다른 행정기관에 제공 될 수 있으며, 필요 시 행정기관등의 홈페이지를 통해 일반국민들에게 신고 사례로 제공 될 수 있습니다.</p>
+									<!-- class="ico-mic stop"는 정지화면 정지시 그만듣기로 텍스트 통일 -->
+									<button id="btnTts_singoOpen" type="button" class="ico-mic">내용듣기</button>
+								</article>
+							</div>
+						</td>
+					</tr>
+
+                    <tr class="agency_tr" style="display: none;">
+                        <th scope="row">처리 기관 직접 선택 여부</th>
+                        <td>
+                            <article class="inputWmd dsp_inblck">
+                                <div class="radio">
+                                    <label for="D_OPEN1">
+                                        <input type="radio" name="D_OPEN" id="D_OPEN1" value="0">
+                                        <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                        <span class="txt">예</span>
+                                    </label>
+                                    <label for="D_OPEN2">
+                                        <input type="radio" name="D_OPEN" id="D_OPEN2" checked="" value="1">
+                                        <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                        <span class="txt">아니요</span>
+                                    </label>
+                                </div>
+                            </article>
+                            <div class="processing_choice"><input type="text"></div>
+                        </td>
+                    </tr>
+				</tbody></table>
+			</div>
+			<!-- //1.안전신고 내용입력 끝 -->
+
+			<!-- 처리기관 선택여부 -->
+            <div class="processing_body" style="display: none;">
+                <h3 class="stitle">처리기관<span class="font_accent2"></span></h3>
+                <div class="table_bbs singo tb_sty03">
+                    <table width="100%" border="1">
+                        <caption>처리기관 직접 선택</caption>
+                        <tbody><tr>
+                            <th scope="row">처리기관 직접 선택</th>
+                            <td>
+                                <div class="guide_txt">※ 신고는 소관기관으로 이송되거나 여러 기관으로 배정되어 처리될 수 있습니다.</div>
+                                <!-- 기관분류 -->
+                                <div class="agency-choice">
+                                    <div class="title">기관분류</div>
+                                    <div class="radio">
+                                        <label for="E_OPEN1">
+                                            <input type="radio" name="E_OPEN" id="E_OPEN1" checked="" value="T10000">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <span class="txt">중앙행정기관</span>
+                                        </label>
+                                        <label for="E_OPEN2">
+                                            <input type="radio" name="E_OPEN" id="E_OPEN2" value="T20000">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <span class="txt">지방자치단체</span>
+                                        </label>
+                                        <label for="E_OPEN4">
+                                            <input type="radio" name="E_OPEN" id="E_OPEN4" value="T40000">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <span class="txt">공공기관</span>
+                                        </label>
+                                        <label for="E_OPEN5">
+                                            <input type="radio" name="E_OPEN" id="E_OPEN5" value="T50000">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            <span class="txt">헌법기관</span>
+                                        </label>
+                                        <label for="E_OPEN7">
+											<input type="radio" name="E_OPEN" id="E_OPEN7" value="T30000">
+											<span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+											<span class="txt">교육기관</span>
+										</label>
+                                        <label for="E_OPEN6" class="input">
+                                            <input type="radio" name="E_OPEN" id="E_OPEN6" value="SEARCH">
+                                            <!-- <span class="cr"><i class="cr-icon fa fa-circle"></i></span> -->
+                                            <span class="txt">기관검색</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- //기관분류 -->
+                                <div class="agency-list">
+                                    <div class="agency">
+                                        <div class="agency_result">
+                                        </div>
+                                        <div class="btn_more" style="display: none;">
+                                            <button><span>기관 더 보기</span></button>
+                                        </div>
+                                        <div class="kor_name" style="display: none;">
+                                            <ul>
+                                                <li><button data-code="A" class="on"><span>ㄱ</span></button></li>
+                                                <li><button data-code="B"><span>ㄴ</span></button></li>
+                                                <li><button data-code="C"><span>ㄷ</span></button></li>
+                                                <li><button data-code="D"><span>ㄹ</span></button></li>
+                                                <li><button data-code="E"><span>ㅁ</span></button></li>
+                                                <li><button data-code="F"><span>ㅂ</span></button></li>
+                                                <li><button data-code="G"><span>ㅅ</span></button></li>
+                                                <li><button data-code="H"><span>ㅇ</span></button></li>
+                                                <li><button data-code="I"><span>ㅈ</span></button></li>
+                                                <li><button data-code="J"><span>ㅊ</span></button></li>
+                                                <li><button data-code="K"><span>ㅋ</span></button></li>
+                                                <li><button data-code="L"><span>ㅌ</span></button></li>
+                                                <li><button data-code="M"><span>ㅍ</span></button></li>
+                                                <li><button data-code="N"><span>ㅎ</span></button></li>
+                                                <li><button data-code="O"><span>기타</span></button></li>
+                                            </ul>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- 기관검색 -->
+                                    <div class="agency_search" style="display: none;">
+                                        <div class="agency06_sch">
+                                            <label for="instSearchWord">기관 검색</label>
+                                            <div class="sch_btn_right">
+                                                <input type="text" name="instSearchWord" id="instSearchWord">
+                                                <button type="button" class="btn-search">검색</button>
+                                            </div>
+                                        </div>
+                                        <div class="agency_sch_list">
+                                        </div>
+                                        <div class="btn_more" style="display: none;">
+                                            <button><span>기관 더 보기</span></button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+            <!-- 처리기관 선택여부 -->
+
+			<!-- 인적 사항(선택) -->
+			<h3 class="stitle">인적 사항<span class="font_accent2"></span></h3>
+			<p class="txt_intro">
+				<span class="font_accent1">인적 사항(성명 등) 미입력 시 처리 기관의 신고 이력 관리,  진행 사항 통보, 처리 등 업무에 제약을 받을 수 있습니다.</span><br>
+				<span class="font_accent2">「민원처리에 관한 법률」 시행령 제2조 제1항</span>
+			</p>
+
+			<!-- 인적사항 작성하기 표 -->
+			<div class="table_bbs singo tb_sty03"> <!-- shin 클래스 tb_sty03 추가 -->
+				<table width="100%" border="1">
+					<caption>
+					인적사항 작성 표로 구분,이름,이메일,개인정보수집동의의 정보를 입력할 수 있습니다.
+					</caption>
+					<tbody><tr>
+						<th scope="row">구분</th>
+						<td>
+							<!-- 신청인 구분 선택 -->
+							<div class="stt_content">
+								<input type="hidden" name="C_GROUP_NAME" id="C_GROUP_NAME" value="">
+								<input type="hidden" name="C_A_ORG_NAME" id="C_A_ORG_NAME" value="">
+								<input type="hidden" name="C_A_ORG" id="C_A_ORG" value="">
+								<input type="hidden" name="C_CORONA" id="C_CORONA" value="">
+								<input type="hidden" name="C_CORONA_VAL" id="C_CORONA_VAL" value="">
+								<input type="hidden" name="C_FILES" id="C_FILES" value="">
+								<input type="hidden" name="C_FILES_VIEW" id="C_FILES_VIEW" value="">
+								<input type="hidden" name="C_R_FILES" id="C_R_FILES" value="">
+								<input type="hidden" name="C_R_FILES_TIME" id="C_R_FILES_TIME" value="">
+								<input type="hidden" name="C_ID" id="C_ID" value="">
+								<input type="hidden" name="INSTT_CODE" id="INSTT_CODE" value="">
+								<input type="hidden" name="SEHIGH_INSTT_CODE" id="SEHIGH_INSTT_CODE" value="">
+								<input type="hidden" name="BEST_INSTT_CODE" id="BEST_INSTT_CODE" value="">
+								<input type="hidden" name="GRP_ENTRPRS_CODE" id="GRP_ENTRPRS_CODE" value="">
+								<input type="hidden" name="C_RELATION2" id="C_RELATION2" value="1">
+								<input type="hidden" name="C_RELATION3" id="C_RELATION3" value=""> <!-- 안전보안관 = 1 -->
+								<input type="hidden" name="STTEMNT_IMAGE_URL" id="STTEMNT_IMAGE_URL" value="">
+
+								<input type="hidden" id="uploadId" value="kupload1">
+
+								<!-- 민간단체 정보 추가(2018-11-14) -->
+								<input type="hidden" name="NFVNZ_CD" id="NFVNZ_CD" value="">								<!-- 민간단체 코드 -->
+								<input type="hidden" name="SIDO_INSTT_CODE" id="SIDO_INSTT_CODE" value="">			<!-- 민간단체 활동지역 시고 -->
+								<input type="hidden" name="SIGUNGU_INSTT_CODE" id="SIGUNGU_INSTT_CODE" value="">	<!-- 민간단체 활동기역 시군구 -->
+								<!-- 신고 처리과정 알림 여부 -->
+								<input type="hidden" name="PROCESS_NTCN_YN" id="PROCESS_NTCN_YN" value="Y">
+																 <!-- 회원 신고인 경우 -->
+								<div class="radio">
+									<input type="hidden" name="C_TYPE" value="0">
+									개인
+									
+									
+									
+									
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="C_NAME">이름</label></th>
+						<td>
+
+						<input type="hidden" id="C_NAME" name="C_NAME" title="이름" class="" value="박민우">박민우
+						
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label>이메일</label></th>
+						<td>
+						<input type="hidden" id="C_EMAIL" name="C_EMAIL" title="이메일" value="minwoo990210@naver.com">
+						minwoo990210@naver.com
+						</td>
+					</tr>
+					<tr style="display:none;">
+						<th scope="row">개인정보 수집 동의<i class="fa fa-check ico_check"><span>*</span></i></th>
+						<td>
+							<article class="inputWmd dsp_inblck">
+								<div class="radio">
+									<label for="agreeUseMyInfo1">
+										<input type="radio" name="agreeUseMyInfo" id="agreeUseMyInfo1" value="Y" tabindex="-1">
+										<span class="cr" tabindex="0" onkeypress="if(event.keyCode==13) {javascript:$$.KeyCheck('agreeUseMyInfo','Y'); return false;}"><i class="cr-icon fa fa-circle"></i></span>
+										<span class="txt">예</span>
+									</label>
+									<label for="agreeUseMyInfo2">
+										<input type="radio" name="agreeUseMyInfo" id="agreeUseMyInfo2" value="N" tabindex="-1">
+										<span class="cr" tabindex="0" onkeypress="if(event.keyCode==13) {javascript:$$.KeyCheck('agreeUseMyInfo','N'); return false;}"><i class="cr-icon fa fa-circle"></i></span>
+										<span class="txt">아니요</span>
+									</label>
+								</div>
+							</article>
+
+							<!-- 내용보기 가리기 -->
+							<button type="button" class="button btnWmd moreBtn" data-toggle="collapse" data-target="#singoPerson" aria-expanded="false" aria-controls="singoPerson">내용 보기 <i id="singoPersonI" class="fa fa-angle-down"></i></button>
+							<div class="moreView">
+								<article class="moreDoc collapse done" id="singoPerson" style="display: none;">
+									<h4>1. 개인정보의 수집 및 이용 목적(개인정보보호법 제15조)</h4>
+									<p>안전신문고는 관계법령 등에서 정하는 소관 업무의 수행을 위하여 다음과 같이 개인정보를 수집 및 이용합니다. 수집된 개인정보는 정해진 목적 이외의 용도로는 이용되지 않으며 수집 목적이 변경될 경우 사전에 알리고 동의를 받을 예정입니다. </p>
+									<p>※ 관계법령 등 : 민원 처리에 관한 법률 및 동법 시행령, 전자정부법 및 동법 시행령 등</p>
+									<ul>
+										<li>가. 민원 접수·처리·사후관리 서비스 제공민원신청서에 포함된 개인정보는 민원의 접수·처리 등 소관 업무 수행을 위해 행정·공공기관에서 이용합니다.</li>
+										<li>나. 타 행정·공공기관 시스템 이용민원의 전자적 처리를 위해 내부적으로 타 시스템 연계 및 이용 시 개인정보를 이용합니다.</li>
+										<li>다. 안전신문고 정책지원 안전신문고 서비스 향상 및 정책평가를 위하여 접수된 민원은 관계 법령에 따라 분석·평가 및 처리결과의 사후관리를 시행합니다.</li>
+									</ul>
+									<br>
+									<h4>2. 수집하는 개인정보의 항목(개인정보보호법 제15조, 제16조)</h4>
+									<ul>
+                                		<li>- 회원으로 서비스 이용시</li>
+                                        <li>가. 필수항목 : 성명, 아이디, 생년월일, 주소, 휴대전화번호, (만19세미만가입시)부모님휴대전화번호, (만19세미만가입시)부모님성명 </li>
+                                        <li>나. 선택항목 : 연락처(유선), 이메일</li>
+                                     	<li>다. 자동수집항목: IP(Internet Protocol)주소, 이용내용의 기록</li>
+                                        <li>- 비회원으로 서비스 이용시</li>
+
+                                        <li>가. 필수항목: 휴대전화</li>
+                                        <li>나. 선택항목: 성명, 기업명, 이메일 </li>
+                                        <li>다. 자동수집항목: IP(Internet Protocol)주소, 이용내용의 기록</li>
+                                    </ul>
+                            		<p>※ 부정한 방법으로 타인명의를 사용하는 경우에 대비하기 위해 정보이용내역 등을 자동수집하며, 타인명의 도용 시, 주민등록법 제37조(벌칙)에 의해 처벌 받을 수 있습니다.</p>
+									<br>
+									<h4>3. 개인정보의 보유 및 이용기간(공공기록물 관리에 관한 법률 시행령 제26조)</h4>
+									<p>안전신문고는 원칙적으로 개인정보 보존기간이 경과하거나, 처리목적이 달성된 경우에는 지체 없이 개인정보를 파기합니다. 다만, 다른 법령에 따라 보존하여야 하는 경우에는 그러하지 않을 수 있습니다.</p>
+									<ul>
+										<li><strong class="useAgreeFont2">1) 신고, 제안: 10년</strong></li>
+										<li><strong class="useAgreeFont2">2) 회원정보: 회원탈퇴시 즉시 파기</strong></li>
+										<li><strong class="useAgreeFont2">3) 자동수집항목 중 IP주소: 1년</strong></li>
+									</ul>
+									<br>
+									<h4>4. 동의를 거부할 권리가 있다는 사실 및 동의 거부에 따른 불이익 내용(개인정보보호법 제16조)</h4>
+									<p>민원 신청 시 수집하는 필요한 최소한의 정보 외의 개인정보 수집에 동의를 거부할 권리가 있으나 최소한의 개인정보 수집동의 거부 시에는 민원 신청 서비스가 제한됩니다.</p>
+									<!-- class="ico-mic stop"는 정지화면 정지시 그만듣기로 텍스트 통일 -->
+									<button id="btnTts_singoPerson" type="button" class="ico-mic">내용듣기</button>
+								</article>
+							</div>
+
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+			<!-- 인적사항 작성하기 표 (끝) -->
+			<!-- 버튼영역 -->
+              <div class="buttonArea center">
+              <a href="javascript:;" class="button big gray" onclick="history.go(-1);">취소</a>
+              <!-- 임시저장 추가 21'고도화-->
+              <a href="javascript:;" class="button big gray" onclick="$$.fnGoNext(3);">임시저장</a>
+              <a href="javascript:;" class="button big blue" onclick="$$.fnGoNext(2);">신청</a></div>
+              </div>
+          </article>
+
+    </div>
+	</form>
+</section>
+<section id="contents2" style="display:none;">
+			<h2 class="title">
+				신고하기
+	            
+	            
+	        </h2>
+				<!-- 신고서작성단계 -->
+			<div class="singoStep">
+				<ul class="clearfix">
+					<li><span>신고서 작성</span></li>
+					<!-- <li class="on"><span>기관선택</span></li>  -->
+					<li><span>신청완료</span></li>
+				</ul>
+			</div>
+			<h3 class="stitle">처리기관지정요청</h3>
+			<p class="txt_intro">콜센터에서 추천한 처리기관이 아닌 다른 처리기관을 희망하시는 경우, 민간단체 관리자에게 처리기관지정을 요청하실 수 있습니다. </p>
+				<article class="article">
+					<p class="checkbox">
+						<label>
+							<input type="checkbox" id="reqChoiceOrg" name="reqChoiceOrg" checked="">
+							<span class="cr"><i class="cr-icon fa fa-check"></i></span>
+							<span class="txt">&nbsp;처리기관 지정요청</span>
+						</label>
+					</p>
+				</article>
+			<div class="buttonArea"> <a href="javascript:;" class="button big blue" onclick="$$.fnSaveReport()">신청</a> <a href="#" class="button big gray" onclick="$$.fnCancelTab2()">취소</a> </div>
+		</section>
+		<section id="contents3" style="display:none;">
+			<h2 class="title">
+			신고하기
+            
+            
+			</h2>
+			<!-- 신고서작성단계 -->
+			<div class="singoStep">
+				<ul class="clearfix">
+					<li><span>신고서 작성</span></li>
+					<!-- <li><span>기관선택</span></li> -->
+					<li class="on"><span>신청완료</span></li>
+				</ul>
+			</div>
+
+			<!-- 신청완료 -->
+			<h3 class="hide2">신청완료</h3>
+			<div class="singoEnd singoPart_safe">
+				<div class="singoEndInfo">
+					<article class="singoEndTxt">안전신고가 접수되었습니다.</article>
+					<article class="singoEndNum"><span>신고번호</span><font id="sttemntNo"></font></article>
+				</div>
+
+				<div class="buttonArea cntnsRegBtnArea" style="display: none;">
+					<a href="javascript:;" class="button big blue" onclick="$$.fnCntnsSafeReport();">연속등록</a>
+			        <input type="hidden" id="CNTNS_C_NO" value="">
+			        <input type="hidden" id="CNTNS_C_RELATION2" value="1">
+			        <input type="hidden" id="CNTNS_SSNPC_CD" value="">
+				</div>
+
+				
+		        <div class="singoEndIntro" id="after" style="">
+		            <article style="font-weight: bold; color: #3897e1;"> &lt; 겨울철 집중신고 기간(’25.12월~’26.2월) &gt; </article>
+					<article><span class="blt_color">○</span> (대설) 도로 제설 미흡, 제설함 관리 불량, 시설물 파손·붕괴 위험 등</article>
+					<article><span class="blt_color">○</span> (한파) 인도 결빙, 동파 우려, 고드름 낙하, 한파 쉼터 불편 등</article>
+					<article><span class="blt_color">○</span> (화재) 비상구 물건 적치, 담배꽁초 투기, 소화시설 불량, 불법 취사·소각 등</article>
+					<article><span class="blt_color">○</span> (축제·행사) 인파 밀집 우려, 행사장 시설 파손, 안전관리 미흡 등</article>
+		            <article><span class="blt_color">※</span> 이벤트 참여자는 추첨하여 모바일 쿠폰 지급 예정</article>
+		            <article><span class="blt_color">※</span> 우수 신고는 심사를 거쳐 포상금 및 마일리지(1천점) 부여 예정</article>
+		            <br>
+		            <article><span class="star">○</span> 2022.5.1 부터 안전신문고를 통해 접수되는 불법 주정차 신고는 마일리지를 부여하지 않습니다.</article>
+		            <article><span class="star">*</span> 비회원의 경우, 로그인 페이지에서 신고번호와 휴대전화 확인 후 조회하실 수 있으니 신고번호를 기억해 주세요.</article>
+		            <article><span class="star">*</span> 처리과정 및 답변이 푸시, 카카오톡, RCS 또는 문자 알림톡으로 발송됩니다.</article>
+		            <!-- <article><span class="star">*</span> 2020년 8월 말 부터 신고접수 안내 문자를 발송하지 않습니다.(그간 국민권익위원회에서 접수 안내문자를 발송 하였으나, 예산 및 민원 발생 등의 문제로 중단하게 되었습니다.)감사합니다.</article>
+		            <article><span class="star">*</span> 신고하신 내용은 입력하신 문자메시지, 메일을 통해 처리과정을 안내 받으실 수 있으며,   <strong>마이페이지 > 나의안전신고</strong>에서 자세한 내용을 조회하실 수 있습니다.</article>
+		            <article><span class="star">*</span> 비회원의 경우, 로그인 페이지에서 신고번호와 휴대전화 확인 후 조회하실 수 있으니 신고(제안)번호를 기억해주세요. </article>-->
+		        </div>
+			</div>
+
+			<!-- 2023-09-06 신고접수 완료 화면에 주요처리사례 추가-->
+					<div class="processing_cases rollingArea">
+						<h2>주요 처리 사례</h2>
+						<div class="cases">
+							<ul class="rollingList" id="mainCaseRollingList">
+							<!-- 롤링컨트롤 -->
+							<li class="on" style="position: absolute; opacity: 0.0982793; display: block;"><div class="ex1"><p class="before"><span>전</span><a href="#/introduction/mainProcessCase/173896"><img src="/fileDown/thumb/chuli/2026/01/27/20260127_9675ec63b0b74ee185b2880fea3a8925.png" width="253" height="190" alt="처리사례 전"></a></p><p class="after"><span>후</span><a href="#/introduction/mainProcessCase/173896"><img src="/fileDown/thumb/chuli/2026/01/27/20260127_b7eb0178b045442f98a66a350946b120.png" width="253" height="190" alt="처리사례 후"></a></p></div><p class="txt"><a href="#/introduction/mainProcessCase/173896">빙판 제설작업 요청</a></p><div class="ex2"><p class="before"><span>전</span><a href="#/introduction/mainProcessCase/173895"><img src="../images/movie01.png" width="253" height="190" alt="처리사례 전"></a></p><p class="after"><span>후</span><a href="#/introduction/mainProcessCase/173895"><img src="../images/movie01.png" width="253" height="190" alt="처리사례 후"></a></p><p class="txt"><a href="#/introduction/mainProcessCase/173895">소화전 앞 화기물질 정비 요청</a></p></div></li><li class="on" style="position: absolute; opacity: 0.645518; display: block;"><div class="ex1"><p class="before"><span>전</span><a href="#/introduction/mainProcessCase/173894"><img src="/fileDown/thumb/chuli/2026/01/27/20260127_74e951122a6b4965bcd5e050d2a2095b.png" width="253" height="190" alt="처리사례 전"></a></p><p class="after"><span>후</span><a href="#/introduction/mainProcessCase/173894"><img src="/fileDown/thumb/chuli/2026/01/27/20260127_8afb3675d46b474aaeb53d2888be0a2c.png" width="253" height="190" alt="처리사례 후"></a></p></div><p class="txt"><a href="#/introduction/mainProcessCase/173894">전신주 정비 요청</a></p><div class="ex2"><p class="before"><span>전</span><a href="#/introduction/mainProcessCase/173893"><img src="../images/movie01.png" width="253" height="190" alt="처리사례 전"></a></p><p class="after"><span>후</span><a href="#/introduction/mainProcessCase/173893"><img src="../images/movie01.png" width="253" height="190" alt="처리사례 후"></a></p><p class="txt"><a href="#/introduction/mainProcessCase/173893">위험물 정비 요청</a></p></div></li></ul>
+						</div>
+						<div class="rollControlWrap">
+							<div class="rollControlBox">
+								<ul class="ctl_box"><li class="list on"><a href="#" title="주요 처리 사례 보기1"><span class="sr-only2">주요 처리 사례 보기1</span></a></li><li class="list"><a href="#" title="주요 처리 사례 보기2"><span class="sr-only2">주요 처리 사례 보기2</span></a></li></ul>
+								<ul class="ctl_btn">
+									<li class="btn_stop on"><a href="#">주요 처리 사례 스톱</a></li>
+									<li class="btn_play"><a href="#">주요 처리 사례 플레이</a></li>
+								</ul>
+							</div>
+						</div>
+						<p class="more"><a href="#introduction/mainProcessCase" title="주요 처리 사례 더보기">+</a></p>
+					</div>
+
+			<!-- 2023-09-06 주요처리사례 -->
+
+			<div class="buttonArea">
+				<a href="#/mypage/mysafereport" class="button big blue">나의 안전신고</a>
+			</div>
+		</section>
+
+<!-- 즐겨찾기 등록 모달 팝업 -->
+<div class="new-modal fade in" id="bookMark_add_modalPopup" style="z-index: 1054;" tabindex="-1" role="dialog" aria-labelledby="c4ModalLabel">
+    <h2 id="c4ModalLabel">즐겨찾기등록모달팝업</h2>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        </div>
+        <input type="hidden" id="bkmkEditFlag" name="bkmkEditFlag" value="N">
+    </div>
+</div>
+
+<!-- 즐겨찾기 조회 모달 팝업 -->
+<div class="new-modal fade in" id="bookMark_list_modalPopup" style="z-index: 1053;" tabindex="-1" role="dialog" aria-labelledby="c4ModalLabel">
+    <h2 id="c4ModalLabel">즐겨찾기조회모달팝업</h2>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+<!-- 모달 팝업 -->
+<div class="new-modal fade in" id="safe_modalPopup" tabindex="-1" role="dialog" aria-labelledby="c4ModalLabel">
+    <h2 id="c4ModalLabel">신고모달팝업</h2>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<div class="new-modal fade in" id="typo_modalPopup" tabindex="-1" role="dialog" aria-labelledby="c4ModalLabel" style="display: none; padding-right: 17px;">
+   <h2 id="c4ModalLabel">신고모달팝업</h2>
+   <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span>×</span></button>
+        <h4 class="modal-title" id="c1ModalLabel">추천 단어</h4>
+	        <h3 class="stitle2 center">단어를 선택하세요.</h3>
+			<div class="ota_body">
+				<ul class="ota_tit">
+			        <li>오탈자 <span class="number" id="typoCnt"></span></li>
+			        <li class="Fr_yellow">추천 단어</li>
+			    </ul>
+				<div class="otaScroll">
+				<div class="ota_left">
+			  		<span id="typo">
+			  			<a id="typo1" onclick="$$.typoOnOff('typo1')" class="on">꼬깔콘</a>
+			            <a id="typo2" onclick="$$.typoOnOff('typo2')" class="on">꼬깔콘</a>
+			  		</span>
+				</div>
+				<div class="ota_right">
+			        <span id="rcmdtnWord">
+				        <a id="rcmdtnWord1" onclick="$$.typoOnOff('rcmdtnWord1')">꼬깔콘</a>
+				        <a id="rcmdtnWord2" onclick="$$.typoOnOff('rcmdtnWord2')">꼬깔콘</a>
+			        </span>
+			    </div>
+				</div><!--//otaScroll-->
+			</div><!--//ota_body-->
+
+
+			<!--버튼 수정-->
+			<div class="buttonArea2" id="btnTypo">
+			<button type="button" class="button white" data-dismiss="modal" onclick="$$.fnTypoMdfcnSave('+step+')">제출</button>
+			<button type="button" class="button white" data-dismiss="modal" aria-label="Close">닫기</button>
+
+			<!--파란버튼-->
+		    </div>
+			</div>
+		</div>
+		</div>
+	</div>
+
+<script>
+$(function() {
+	TK_Loading();
+	TK_isInstallcheck();
+});
+
+</script>
+<script type="text/javascript">
+var uploadConfig = Object.assign({},commUploadConfig);
+var upload = new RAONKUpload(uploadConfig);
+</script>
+<script>
+$(function(){
+	const changeDate = new Date('2025','11','1');
+	const now = new Date();
+
+	if (now >= changeDate) {
+	    document.getElementById("before").remove();
+	    document.getElementById("after").style.display = "";
+	} else {
+	    document.getElementById("before").style.display = "";
+	    document.getElementById("after").remove();
+	}
+});
+</script>
+<script type="text/javascript" src="js/common.tab.js"></script>
+<script type="text/javascript" src="js/common.moreView.js"></script>
+<script type="text/javascript" src="js/libs/jquery.plugin.min.js"></script>
+<script type="text/javascript" src="js/libs/jquery.countdown.js"></script>
+<script type="text/javascript" src="js/libs/jquery.countdown-ko.js"></script>
+<script type="text/javascript" src="js/portal/safereport/cmmn/trfcReport.util.js"></script>
+<script type="text/javascript" src="js/portal/safereport/cmmn/videoTrim.util.js"></script></section>
+    </div>
+
+    <!-- #footer -->
+    <footer id="footer">
+        <section class="footer">
+            <h2 class="hide2">기관배너링크</h2>
+            <!-- 롤링배너 스크립 -->
+            <article class="banner">
+                <p class="bannerLeft"><a href="" class="fa fa-angle-left"><span class="hide2" title="이전 배너 이동">이전 배너 이동</span></a></p>
+                <ul class="bannerList ui-carousel" style="width: 1088px; overflow: hidden; height: 45px;">
+<!--                <li><a href="http://www.mybudget.go.kr" target="_blank"><img src="/images/main/family12.gif" alt="국민참여예산" /></a></li> -->
+                    <div class="wrapper"><li style="width: 148px; height: 45px; margin-right: 40px;"><a href="http://www.mois.go.kr" target="_blank" title="새 창열림"><img src="/images/main/family00.gif" alt="행정안전부"></a></li><li style="width: 148px; height: 45px; margin-right: 40px;"><a href="https://www.safetv.go.kr" target="_blank" title="새 창열림"><img src="/images/main/family02.gif" alt="국민안전방송 안전한TV"></a></li><li style="width: 148px; height: 45px; margin-right: 40px;"><a href="https://safewatch.safemap.go.kr" target="_blank" title="새 창열림"><img src="/images/main/tonghab_banner_s.jpg" alt="안전정보통합공개시스템"></a></li><li style="width: 148px; height: 45px; margin-right: 40px;"><a href="http://www.safekorea.go.kr" target="_blank" title="새 창열림"><img src="/images/main/family03.gif" alt="국민재난안전포털"></a></li><li style="width: 148px; height: 45px; margin-right: 40px;"><a href="http://www.safemap.go.kr" target="_blank" title="새 창열림"><img src="/images/main/family04.gif" alt="생활안전지도"></a></li><li style="width: 148px; height: 45px; margin-right: 40px;"><a href="http://www.better.go.kr" target="_blank" title="새 창열림"><img src="/images/main/family05.gif" alt="규제정보포털"></a></li></div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <!-- <li><a href="http://www.119.go.kr" target="_blank"><img src="/images/main/family07.gif" alt="119안전신고센터" /></a></li>  -->
+                    <!-- <li><a href="http://www.mpss.go.kr/122" target="_blank"><img src="/images/main/family08.gif" alt="긴급출동122해양경찰" /></a></li>  -->
+                    <!-- <li><a href="http://u119.nema.go.kr" target="_blank"><img src="/images/main/family09.gif" alt="119유비쿼터스시스템" /></a></li>  -->
+                    
+
+                </ul>
+                <p class="bannerRight"><a href="" class="fa fa-angle-right"><span class="hide2" title="다음 배너 이동">다음 배너 이동</span></a></p>
+            </article>
+
+
+            <h2 class="hide2">사이트정보</h2>
+            <article class="sidemenu">
+                <ul>
+                    <li><a href="#main/accessTerms">이용약관</a></li>
+                    <li><a href="#main/privacyPolicy" style="color: #055b9e;">개인정보처리방침</a></li>
+                    <li><a href="#main/findWay">찾아오시는길</a></li>
+                    <li class="f_right">
+                        <div class="sitelink dropup">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="sitelinkDropup" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">유관기관 <i class="fa fa-angle-up"></i></button>
+                            <ul class="dropdown-menu" aria-labelledby="sitelinkDropup">
+                                <li class="disabled">유관기관</li>
+                                <li><a href="http://www.ndti.go.kr">국가민방위재난안전교육원</a></li>
+                                <!-- <li><a href="http://www.nfsa.go.kr">중앙소방학교</a></li>  -->
+                                <!-- <li><a href="http://edu.kcga.go.kr">해양경비안전교육원</a></li>  -->
+                                <li><a href="http://www.ndmi.go.kr">국립재난안전연구원</a></li>
+                                <!--  <li><a href="http://www.mpss.go.kr/rcgh/mcKcg/main/">해양경비안전정비창</a></li>  -->
+                                <!-- <li><a href="http://www.rescue.go.kr">중앙119구조본부</a></li>  -->
+                                <!--  <li><a href="http://www.mpss.go.kr/rcgh/seoHaeCgh/main/">서해지방해양경비안전본부</a></li>  -->
+                                <!--  <li><a href="http://www.mpss.go.kr/rcgh/namHaeCgh/main/">남해지방해양경비안전본부</a></li>  -->
+                                <!--   <li><a href="http://www.mpss.go.kr/rcgh/dongHaeCgh/main/">동해지방해양경비안전본부</a></li>  -->
+                                <!-- <li><a href="http://www.mpss.go.kr/rcgh/jeJuCgh/main/">제주지방해양경비안전본부</a></li>  -->
+                                <!--
+                                <li class="disabled">---재난안전대책본부---</li>
+                                <li><a href="http://119.seoul.go.kr">서울종합방재센터</a></li>
+                                <li><a href="http://119.gg.go.kr">경기재난안전대책본부</a></li>
+                                <li><a href="http://area.busan.go.kr/safety/Main.bs">부산재난안전대책본부</a></li>
+                                <li><a href="http://eco.daegu.go.kr">대구재난안전대책본부</a></li>
+                                <li><a href="http://field.incheon.go.kr/posts/2209">인천재난안전대책본부</a></li>
+                                <li><a href="http://disaster.gwangju.go.kr">광주재난안전대책본부</a></li>
+                                <li><a href="http://www.daejeon.go.kr/saf/index.do">대전재난안전대책본부</a></li>
+                                <li><a href="http://bangjae.chungnam.go.kr">충남재난안전대책본부</a></li>
+                                <li><a href="http://jaenan.cb21.net">충북재난안전대책본부</a></li>
+                                <li><a href="http://u-safe.jeonnam.go.kr">전남재난안전대책본부</a></li>
+                                <li><a href="http://u-safe.jeonbuk.go.kr">전북재난안전대책본부</a></li>
+                                <li><a href="http://bangjae.gsnd.net">경남재난안전대책본부</a></li>
+                                <li><a href="http://cafe.daum.net/119gdsn">경북재난안전대책본부</a></li>
+                                <li><a href="http://bangjae.jeju119.go.kr">제주재난안전대책본부</a></li>
+                                <li class="disabled">-----지역소방본부-----</li>
+                                <li><a href="http://fire.seoul.go.kr">서울소방재난본부</a></li>
+                                <li><a href="http://119.busan.go.kr">부산소방본부</a></li>
+                                <li><a href="http://119.daegu.go.kr">대구소방본부</a></li>
+                                <li><a href="http://119.incheon.go.kr">인천소방안전본부</a></li>
+                                <li><a href="http://fire119.gwangju.go.kr">광주광역시 소방안전본부</a></li>
+                                <li><a href="http://www.daejeon.go.kr/dj119/index.do">대전소방본부</a></li>
+                                <li><a href="http://fire.ulsan.go.kr">울산소방본부</a></li>
+                                <li><a href="https://119.gg.go.kr">경기소방재난본부</a></li>
+                                <li><a href="http://119.gg.go.kr/north/">경기북부소방재난본부</a></li>
+                                <li><a href="http://fire.provin.gangwon.kr">강원소방본부</a></li>
+                                <li><a href="http://www.cb119.net">충북소방본부</a></li>
+                                <li><a href="http://www.cn119.go.kr">충남소방안전본부</a></li>
+                                <li><a href="http://www.sobang.kr">전북소방본부</a></li>
+                                <li><a href="http://www.jnsobang.go.kr">전남소방본부</a></li>
+                                <li><a href="http://gb119.go.kr">경상북도소방본부</a></li>
+                                <li><a href="http://www.gnfire.go.kr">경남소방본부</a></li>
+                                <li><a href="http://www.jeju119.go.kr">제주소방본부</a></li>
+                                 -->
+                            </ul>
+                        </div>
+                        <div id="gotop" class="gotop" style=""><a href="#header"><span class="hide2">페이지 최상이동</span></a></div>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="siteinfo footer_copy">
+                <div class="copy_box">
+                    <ul>
+                    <li><span>우편번호 30112, 세종특별자치시 도움6로 42(어진동)</span><span>시스템 이용관련 문의 : 1600-7395</span></li>
+                    <li class="institution_list"><em>지역별 안전신고 분류(처리기관 지정 및 조정) 문의</em>
+                        <p><span>➀ 강원, 경기, 경북, 경남, 전북, 전남 : 044-205-4234</span><span>➁ 충북, 충남, 제주: 044-205-4235</span></p>
+                        <p><span>➂ 광주, 대구, 대전, 부산, 서울, 세종, 울산, 인천 : 044-205-4238</span></p>
+                    </li>
+                    <li>
+                        본 홈페이지는 게시된 이메일주소가 자동 수집되는 것을 거부하며 이를 위반시 정보통신망법에 의해 처벌됨을 유념하여주시기 바랍니다.<br>
+                        <p class="copy">COPYRIGHT(C) 2017 Ministry of the Interior and Safety. All rights reserved.</p>
+                    </li>
+                    <li><span class="hide2">행정안전부</span></li>
+                    <li style="right:0;position:absolute;top:50%;margin-top: -28px;">
+                        <a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110" title="국가 공인 인증기관 : 웹와치">
+                            <img src="/images/footer_mark_wah.png" border="0" alt="과학기술정보통신부 WEB ACCESSIBILITY 마크(웹 접근성 품질인증 마크)">
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </footer>
+</div>
+
+<script id="not-found" type="text/html">
+    <div class="page-header">
+        <h1>404</h1>
+    </div>
+    <div class="row">
+        <div class="span14">
+            <p>This is not the content you are looking for.</p>
+        </div>
+    </div>
+</script>
+
+<!-- Init Application Router -->
+<script type="text/javascript">
+var contentRouter = new ApplicationRouter($('#content'), $('#left'), $('body'));
+Backbone.history.start();
+
+$('#searchTerm').keydown(function(e) {
+    if(e.which == 13){
+        e.preventDefault();
+        $( "#btnSch" ).click();
+    }
+});
+
+$('#searchTerm1').keydown(function(e) {
+    if(e.which == 13){
+        e.preventDefault();
+        $( "#btnSch1" ).click();
+    }
+});
+
+
+$(function() {
+    $('.searchlayer .btnSearch').click(function(){
+        $(this).hide();
+        $('.searchArea').show();
+        $('.share').hide();
+        $('.searchArea p.search_close a').click(function(){
+            $('.searchArea').hide();
+            $('.searchlayer .btnSearch').show();
+            $('.share').show();
+            $(".searchlayer .btnSearch").focus();
+        });
+        return false;
+    });
+});
+
+$( "#btnSch" ).click(function() {
+    var searcWord = $('#searchTerm').val();
+    if(searcWord==undefined || searcWord==''){
+        searcWord = ' ';
+    }else{
+        searcWord = searcWord.replace(/[<>\"\'\;\:\/\(\)\%]/g,"");
+    }
+    $('#searchTerm').val("");
+    location.href="#main/search/"+encodeURIComponent(searcWord);
+});
+
+$( "#btnSch1" ).click(function() {
+    var searcWord = $('#searchTerm1').val();
+    if(searcWord==undefined || searcWord==''){
+        searcWord = ' ';
+    }else{
+        searcWord = searcWord.replace(/[<>\"\'\;\:\/\(\)\%]/g,"");
+    }
+    $('#searchTerm1').val("");
+    location.href="#main/search/"+encodeURIComponent(searcWord);
+});
+
+$("#searchClose").click(function(){
+});
+
+$("body").on('hidden.bs.modal', '#div_modalPopup', function(data){
+    if(browsercheck()){
+        speechStop();
+    }
+});
+
+
+</script>
+<!-- 모달 팝업 -->
+<div class="modal fade in" id="div_modalPopup" tabindex="-1" role="dialog" aria-labelledby="c4ModalLabel" style="overflow-x: hidden; overflow-y: auto;">
+    <h2 id="c4ModalLabel">공통모달팝업</h2>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+
+<div class="new-modal fade in" id="tmp_modalPopup" tabindex="-1" role="dialog" aria-labelledby="c4ModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/js/responsive.js"></script>
+<!-- 네이버 애널리틱스 ID 및 스크립트 -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript">
+    if (!wcs_add)
+        var wcs_add = {};
+    wcs_add["wa"] = "bfa707cc689570";
+    if (window.wcs) {
+        wcs_do();
+    }
+</script>
+<script>
+$(function(){
+	const changeDate = new Date(new Date().getFullYear(), 11, 1, 0, 0, 0);
+	const now = new Date();
+
+	if (now >= changeDate) {
+	    document.getElementById("beforeEvent").style.display = "none";
+	    document.getElementById("afterEvent").style.display = "";
+	} else {
+	    document.getElementById("beforeEvent").style.display = "";
+	    document.getElementById("afterEvent").style.display = "none";
+	}
+});
+</script>
+
+<div class="side_bg" style="display: none;"></div><div id="exDiv" style="display: none;"><iframe id="ex_ifr" name="ex_ifr" src="/TouchEn/cmn/blank.html" width="0" height="0" title="touchEn"></iframe><form method="POST" id="__TOUCHENEX_FORM__" name="__TOUCHENEX_FORM__"><input type="hidden" id="__CROSSEX_DATA__" name="__CROSSEX_DATA__"></form></div><iframe id="raonkupload_context_menu" title="RAONKUpload Context" scrolling="no" frameborder="0" src="" style="margin: 0px; padding: 0px; z-index: 13999; position: absolute; overflow: hidden; display: none;"></iframe><dummy id="_touchenex_dummy_id_1770926020998"></dummy><dummy id="_touchenex_dummy_id_1770926020998"></dummy><dummy id="_touchenex_dummy_id_1770926021496"></dummy><dummy id="_touchenex_dummy_id_1770926021996"></dummy><dummy id="_touchenex_dummy_id_1770926022498"></dummy><dummy id="_touchenex_dummy_id_1770926022997"></dummy><dummy id="_touchenex_dummy_id_1770926023496"></dummy><dummy id="_touchenex_dummy_id_1770926023996"></dummy><dummy id="_touchenex_dummy_id_1770926024496"></dummy><dummy id="_touchenex_dummy_id_1770926024996"></dummy><dummy id="_touchenex_dummy_id_1770926025496"></dummy><dummy id="_touchenex_dummy_id_1770926025996"></dummy><dummy id="_touchenex_dummy_id_1770926025921"></dummy><dummy id="_touchenex_dummy_id_1770926025737"></dummy><dummy id="_touchenex_dummy_id_1770926026237"></dummy><dummy id="_touchenex_dummy_id_1770926026737"></dummy><dummy id="_touchenex_dummy_id_1770926027237"></dummy><dummy id="_touchenex_dummy_id_1770926027736"></dummy><dummy id="_touchenex_dummy_id_1770926028237"></dummy><dummy id="_touchenex_dummy_id_1770926028737"></dummy><dummy id="_touchenex_dummy_id_1770926029237"></dummy><dummy id="_touchenex_dummy_id_1770926029737"></dummy><dummy id="_touchenex_dummy_id_1770926030237"></dummy><dummy id="_touchenex_dummy_id_1770926030737"></dummy><dummy id="_touchenex_dummy_id_1770926031237"></dummy><dummy id="_touchenex_dummy_id_1770926031738"></dummy><dummy id="_touchenex_dummy_id_1770926032237"></dummy><dummy id="_touchenex_dummy_id_1770926032737"></dummy><dummy id="_touchenex_dummy_id_1770926033238"></dummy><dummy id="_touchenex_dummy_id_1770926033737"></dummy><dummy id="_touchenex_dummy_id_1770926034237"></dummy><dummy id="_touchenex_dummy_id_1770926034737"></dummy><dummy id="_touchenex_dummy_id_1770926035237"></dummy><dummy id="_touchenex_dummy_id_1770926035736"></dummy><dummy id="_touchenex_dummy_id_1770926036237"></dummy><dummy id="_touchenex_dummy_id_1770926036736"></dummy><dummy id="_touchenex_dummy_id_1770926037238"></dummy><dummy id="_touchenex_dummy_id_1770926037737"></dummy><dummy id="_touchenex_dummy_id_1770926038237"></dummy><dummy id="_touchenex_dummy_id_1770926038738"></dummy><dummy id="_touchenex_dummy_id_1770926039237"></dummy><dummy id="_touchenex_dummy_id_1770926039738"></dummy><dummy id="_touchenex_dummy_id_1770926040236"></dummy><dummy id="_touchenex_dummy_id_1770926040737"></dummy><dummy id="_touchenex_dummy_id_1770926041237"></dummy><dummy id="_touchenex_dummy_id_1770926041737"></dummy><dummy id="_touchenex_dummy_id_1770926042238"></dummy><dummy id="_touchenex_dummy_id_1770926042737"></dummy><dummy id="_touchenex_dummy_id_1770926043237"></dummy><div id="RAON_K_UP_ly_wrapper" class="RAON_K_UP_ly_wrapper" style="width:470px; height:237px; display:none;"><div id="RAON_K_UP_ly_content" class="RAON_K_UP_upload_popup_bluegray RAON_K_UP_upload_popup_blue_02" style="height:235px !important"><div class="RAON_K_UP_ly_uploadbox"><div class="popup_header raonk_ko-kr" style="; "><span id="RAON_K_UP_icon" class="icon_total_upload"></span><span id="RAON_K_UP_total_upload_percent" class="total_upload_percent_new"></span><span class="bar_line">-</span><span id="RAON_K_UP_current_upload_file_name" class="current_upload_file_name"></span><div class="RAON_K_UP_btn_cls raonk_ko-kr" style=""><button id="RAON_K_UP_close_btn" type="button" value="닫기" class="raonk_ko-kr">닫기</button></div></div><div class="RAON_K_UP_popup_body KU_pBottom_1" id="RAON_K_UP_popup_body"><div id="RAON_K_UP_workingimage" style="width: 0px; height:0px;"></div><div class="RAON_K_UP_ly_statusbox_02"><p class="RAON_K_UP_progressbar"><span class="tit raonk_ko-kr" style="width:50px; letter-spacing:0px;">전&nbsp;&nbsp;체&nbsp;:</span><span class="pbar_02"><span id="RAON_K_UP_total_upload_progress_bar" style="width: 0%;" class="pbar_value"></span></span><span class="tit raonk_ko-kr" style="width:50px; letter-spacing:0px;">현&nbsp;&nbsp;재&nbsp;:</span><span class="pbar_03"><span class="pbar_value" id="RAON_K_UP_current_upload_progress_bar" style="width: 0%;"></span></span></p></div><span class="line" style=""><em class="blind"></em></span><div id="RAON_K_UP_div_status" class="tbl_status"><table class="raonk_ko-kr" width="100%" summary="upload transfer window list" style="table-layout:fixed; word-break:break-all; border:0px solid #000;"><caption>upload transfer window</caption><colgroup><col width="12%"><col width="38%"><col width="16%"><col width="34%"></colgroup><tbody><tr><th id="RAON_K_UP_upload_count_label" class="raonk_ko-kr" scope="row">파&nbsp;&nbsp;일&nbsp;&nbsp;&nbsp;:</th><td style="border:0px solid #000; color:#000; " id="RAON_K_UP_upload_count" headers="RAON_K_UP_upload_count_label" class="raonk_ko-kr">0/0</td><th id="RAON_K_UP_upload_size_Label" class="raonk_ko-kr" scope="row">전송 용량&nbsp;&nbsp;&nbsp;:</th><td style="border:0px solid #000; color:#000; " id="RAON_K_UP_upload_size" headers="RAON_K_UP_upload_size_Label" class="raonk_ko-kr">0/0</td></tr><tr id="RAON_K_UP_upload_speed_tr"><th id="RAON_K_UP_upload_speed_Lable" class="raonk_ko-kr" scope="row">속&nbsp;&nbsp;도&nbsp;&nbsp;&nbsp;:</th><td style="border:0px solid #000; color:#000;" id="RAON_K_UP_upload_speed" headers="RAON_K_UP_upload_speed_Lable" class="raonk_ko-kr">-</td><th id="RAON_K_UP_upload_remainingtime_Lable" class="raonk_ko-kr" scope="row">남은 시간&nbsp;&nbsp;&nbsp;:</th><td style="border:0px solid #000; color:#000;" id="RAON_K_UP_upload_remainingtime" headers="RAON_K_UP_upload_remainingtime_Lable" class="raonk_ko-kr">-</td></tr></tbody></table></div><div class="ly_uploadfile" style="display:none;"><div class="uploadfile_h"><span class="fname">이름</span><span class="transfer_status">크기</span><span class="fprogress">상태</span></div><div id="RAON_K_UP_uploadfile_lst" class="uploadfile_lst raonk_ko-kr"><ul id="RAON_K_UP_uploading_file_list"></ul></div></div><span class="line"><em class="blind"></em></span><ul class="icon_list"><li><img src="https://www.safetyreport.go.kr/raonkupload/images/06_encryptparam.png" alt="URL 암호화" title="URL 암호화"></li><li><img src="https://www.safetyreport.go.kr/raonkupload/images/04_https.png" alt="SSL 통신" title="SSL 통신"></li></ul><span class="raonk_ko-kr raon_k_extraTable"><span class="raonk_bold">전송 시간&nbsp;&nbsp;&nbsp;:</span><span id="RAON_K_UP_process_time" class="raonk_td"></span></span><span class="line" style="display:none;"><em class="blind"></em></span></div><div class="RAON_K_UP_uploadbox_btn" id="RAON_K_UP_uploadbox_btn"><span class="logo_area" style="background:url(https://www.safetyreport.go.kr/raonkupload/images/raonklogo.png?version=1) no-repeat;"></span><a id="RAON_K_UP_upload_cancel" href="javascript:;" style="float:right; margin:2px;"><img alt="취소" title="취소" src="https://www.safetyreport.go.kr/raonkupload/images/btn_cancel.png"></a></div></div></div></div><dummy id="_touchenex_dummy_id_1770926044099"></dummy><dummy id="_touchenex_dummy_id_1770926044099"></dummy><dummy id="_touchenex_dummy_id_1770926044237"></dummy><dummy id="_touchenex_dummy_id_1770926044738"></dummy><dummy id="_touchenex_dummy_id_1770926045237"></dummy><dummy id="_touchenex_dummy_id_1770926045737"></dummy><dummy id="_touchenex_dummy_id_1770926046237"></dummy><dummy id="_touchenex_dummy_id_1770926046737"></dummy><dummy id="_touchenex_dummy_id_1770926047238"></dummy><dummy id="_touchenex_dummy_id_1770926047737"></dummy><dummy id="_touchenex_dummy_id_1770926048238"></dummy><dummy id="_touchenex_dummy_id_1770926048738"></dummy><dummy id="_touchenex_dummy_id_1770926049238"></dummy><dummy id="_touchenex_dummy_id_1770926049737"></dummy><dummy id="_touchenex_dummy_id_1770926050238"></dummy><dummy id="_touchenex_dummy_id_1770926050737"></dummy><dummy id="_touchenex_dummy_id_1770926051238"></dummy><dummy id="_touchenex_dummy_id_1770926051737"></dummy><dummy id="_touchenex_dummy_id_1770926052238"></dummy></body></html>

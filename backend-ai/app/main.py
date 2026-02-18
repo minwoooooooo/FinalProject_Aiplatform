@@ -1,4 +1,9 @@
 import os
+
+if os.environ.get('DISPLAY') is None:
+    os.environ['DISPLAY'] = ':99'
+    print("🖥️ 가상 디스플레이 환경변수 설정 완료 (:99)")
+    
 import shutil
 import requests
 from datetime import datetime
@@ -7,6 +12,7 @@ from fastapi.responses import JSONResponse
 from starlette.middleware.sessions import SessionMiddleware 
 from fastapi.middleware.cors import CORSMiddleware 
 from pydantic import BaseModel
+from app.services.crawl_service import run_safety_report # ★ 크롤러 함수 임포트
 
 # 기존 라우터 임포트
 from app.routers import traffic, auth 
@@ -34,7 +40,8 @@ app.add_middleware(
         "http://localhost:8080", 
         "http://127.0.0.1:8080",
         "http://localhost:3000",   
-        "http://127.0.0.1:3000"
+        "http://127.0.0.1:3000",
+        "http://localhost"
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -50,7 +57,7 @@ TEMP_DIR = "temp_videos"
 os.makedirs(TEMP_DIR, exist_ok=True)
 
 # 자바 서버 주소
-JAVA_SERVER_URL = "http://localhost:8080/api/violations"
+JAVA_SERVER_URL = "http://backend-service:8080/api/violations"
 
 @app.get("/")
 def read_root():
@@ -116,7 +123,7 @@ async def analyze_video_endpoint(
         print(f"✅ [Main] 분석 완료: {result['result']}")
 
         # =========================================================
-        # ★ [추가됨] 4. AI 신고 초안 생성 및 데이터 정제
+        # 4. AI 신고 초안 생성 및 데이터 정제
         # =========================================================
         llm_manager = get_llm_manager()
         ai_draft_text = ""
@@ -226,3 +233,71 @@ def delete_video_endpoint(req: DeleteVideoRequest):
     except Exception as e:
         print(f"❌ S3 삭제 중 에러: {e}")
         return JSONResponse({"error": str(e)}, status_code=500)
+    
+
+# 안전신문고 자동 신고
+# 1. 데이터 받는 틀 (Java의 AutoReportRequestDTO와 짝꿍)
+class AutoReportRequest(BaseModel):
+    portalId: str
+    portalPw: str
+    userName: str
+    userPhone: str
+    title: str
+    content: str
+    carNum: str
+    videoUrl: str
+    location: str  # ★ 이 줄이 없어서 그동안 NULL이 떴던 겁니다!
+    occurDate: str
+    occurTimeHh: str
+    occurTimeMm: str
+
+# [수정된 부분 2] 자동 신고 엔드포인트 로직 보강
+@app.post("/api/auto-report")
+async def auto_report_endpoint(background_tasks: BackgroundTasks, req: AutoReportRequest):
+    print(f"🤖 [FastAPI] 자동 신고 요청 수신: {req.carNum} (위치: {req.location})")
+
+    download_url = req.videoUrl
+    # 로컬 호스트 주소 변환
+    if "localhost:8080" in download_url:
+        download_url = download_url.replace("localhost:8080", "backend-service:8080")
+
+    filename = f"report_{req.carNum}_{int(datetime.now().timestamp())}.mp4"
+    temp_file_path = os.path.join(TEMP_DIR, filename)
+
+    try:
+        # ★ [403 에러 해결] S3 보안 접근을 위해 브라우저인 척 헤더 추가
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        }
+        print(f"📥 영상 다운로드 시작: {download_url}")
+        res = requests.get(download_url, headers=headers, stream=True, timeout=10)
+        
+        if res.status_code == 200:
+            with open(temp_file_path, 'wb') as f:
+                shutil.copyfileobj(res.raw, f)
+            print("✅ 영상 다운로드 완료")
+        else:
+            print(f"⚠️ 영상 다운로드 실패 (상태코드: {res.status_code})")
+    except Exception as e:
+        print(f"❌ 영상 다운로드 중 에러: {e}")
+
+    # (2) 크롤링 데이터 준비 (파이썬 봇이 쓰는 키 이름으로 정확히 매핑)
+    report_data = {
+        "portal_id": req.portalId,
+        "portal_pw": req.portalPw,
+        "user_name": req.userName,
+        "user_phone": req.userPhone,
+        "file_path": os.path.abspath(temp_file_path),
+        "title": req.title,
+        "content": req.content,
+        "car_num": req.carNum,
+        "location": req.location,      # ★ 이제 NULL 안 뜨고 정상 전달됩니다!
+        "occur_date": req.occurDate,
+        "occur_time_hh": req.occurTimeHh,
+        "occur_time_mm": req.occurTimeMm
+    }
+
+    # (3) 백그라운드 실행
+    background_tasks.add_task(run_safety_report, report_data)
+
+    return {"status": "started", "message": "자동 신고 작업이 시작되었습니다."}

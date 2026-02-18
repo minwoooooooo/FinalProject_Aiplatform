@@ -13,7 +13,7 @@ KAKAO_CLIENT_SECRET = os.getenv('KAKAO_CLIENT_SECRET')
 # 설정 주소
 KAKAO_REDIRECT_URI = "http://localhost:8000/auth/kakao/callback" 
 FRONTEND_URL = "http://localhost:3000" 
-JAVA_USER_SYNC_URL = "http://localhost:8080/api/user/sync"
+JAVA_USER_SYNC_URL = "http://backend-service:8080/api/user/sync"
 
 # 카카오 API URL
 KAKAO_OAUTH_URL = 'https://kauth.kakao.com/oauth/authorize'
