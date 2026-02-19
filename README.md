@@ -21,10 +21,8 @@
 - 딥러닝 기반 객체 인식 및 위반 여부 판독 후, 생성형 AI(RAG)를 통해 신고서 자동 작성 및 관공서(안전신문고) 자동 접수 수행
 
 ****
+서비스 주요 기능
 <img width="962" height="521" alt="image" src="https://github.com/user-attachments/assets/437c07ea-57ac-458d-9015-8552572f4520" />
-<img width="962" height="521" alt="image" src="https://github.com/user-attachments/assets/437c07ea-57ac-458d-9015-8552572f4520" />
-
-
 
 <br>
 
