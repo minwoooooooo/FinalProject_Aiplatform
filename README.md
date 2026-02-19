@@ -68,44 +68,44 @@
 ## 4. Project Structure
 
 ```bash
-traffic-violation-system/          # [Root] 프로젝트 최상위 루트
+traffic-violation-system/               # [Root] 프로젝트 최상위 루트
 │
-├── ai-engine/                     # [Research] AI 모델 학습 및 실험 전용 디렉토리
+├── ai-engine/                          # [Research] AI 모델 학습 및 실험 전용 디렉토리
 │   ├── notebooks/
-│   │   ├── classifier.ipynb       # [Train] 위반 분류 모델 학습 노트
-│   │   └── detectron2.ipynb       # [Train] 객체 탐지 모델 실험 노트
+│   │   ├── classifier.ipynb            # [Train] 위반 분류 모델 학습 노트
+│   │   └── detectron2.ipynb            # [Train] 객체 탐지 모델 실험 노트
 │
-├── backend-ai/                    # [Production] FastAPI 서비스 구동 디렉토리
+├── backend-ai/                         # [Production] FastAPI 서비스 구동 디렉토리
 │   ├── app/
-│   │   ├── main.py                # [Entry] FastAPI 앱 초기화 및 미들웨어 설정
-│   │   ├── core/                  # [Config] 설정 관리
-│   │   │   ├── config.py          # 환경변수, 경로 상수 정의
-│   │   │   └── global_state.py    # 전역 변수 관리
+│   │   ├── main.py                     # [Entry] FastAPI 앱 초기화 및 미들웨어 설정
+│   │   ├── core/                       # [Config] 설정 관리
+│   │   │   ├── config.py               # 환경변수, 경로 상수 정의
+│   │   │   └── global_state.py         # 전역 변수 관리
 │   │   │
-│   │   ├── routers/               # [API] 엔드포인트 라우팅
+│   │   ├── routers/                    # [API] 엔드포인트 라우팅
 │   │   │   ├── __init__.py
-│   │   │   ├── auth.py            # 인증 관련 라우터
-│   │   │   └── traffic.py         # 영상 분석 요청 라우터
+│   │   │   ├── auth.py                 # 인증 관련 라우터
+│   │   │   └── traffic.py              # 영상 분석 요청 라우터
 │   │   │ 
-│   │   ├── services/              # [Logic] 핵심 비즈니스 로직 모듈
-│   │   │   ├── ai_service.py      # 영상 분석 및 위반 판독 파이프라인
-│   │   │   ├── crawl_service.py   # 안전신문고 자동 신고 봇 (Selenium)
-│   │   │   ├── llm_service.py     # RAG 기반 신고서 작성 및 법률 자문
-│   │   │   ├── plate_ocr.py       # 번호판 인식 및 텍스트 추출
-│   │   │   └── s3_service.py      # AWS S3 연동 (업로드/다운로드)
+│   │   ├── services/                   # [Logic] 핵심 비즈니스 로직 모듈
+│   │   │   ├── ai_service.py           # 영상 분석 및 위반 판독 파이프라인
+│   │   │   ├── crawl_service.py        # 안전신문고 자동 신고 봇 (Selenium)
+│   │   │   ├── llm_service.py          # RAG 기반 신고서 작성 및 법률 자문
+│   │   │   ├── plate_ocr.py            # 번호판 인식 및 텍스트 추출
+│   │   │   └── s3_service.py           # AWS S3 연동 
 │   │   │ 
-│   │   └── models/                # [Model] 학습 완료된 모델 파일 (ai-engine에서 복사됨)
-│   │       ├── best.pt            # YOLO 가중치 파일
-│   │       ├── classifier_model.h5# TensorFlow 분류 모델
-│   │       └── chroma_db_combined10/ # RAG용 Vector DB 폴더
+│   │   └── models/                     # [Model] 학습 완료된 모델 파일
+│   │       ├── best.pt                 # YOLO 가중치 파일
+│   │       ├── classifier_model.h5     # TensorFlow 분류 모델
+│   │       └── chroma_db_combined10/   # RAG용 Vector DB 폴더
 │   │
-│   ├── templates/                 # [Frontend] 테스트용 클라이언트 리소스
-│   │   └── index.html             # API 테스트 페이지
+│   ├── templates/                      # [Frontend] 테스트용 클라이언트 리소스
+│   │   └── index.html                  # API 테스트 페이지
 │   │
-│   ├── temp_videos/               # [Cache] 런타임 영상 처리 임시 디렉토리
-│   ├── .env                       # [Secret] API Key 및 AWS 자격 증명
-│   ├── .gitignore                 # Git 관리 제외 설정
-│   ├── requirements.txt           # [Dep] 서비스 구동 의존성 목록
-│   └── run.py                     # [Exec] Uvicorn 서버 실행 및 Ngrok 터널링
+│   ├── temp_videos/                    # [Cache] 런타임 영상 처리 임시 디렉토리
+│   ├── .env                            # [Secret] API Key 및 AWS 자격 증명
+│   ├── .gitignore                      # Git 관리 제외 설정
+│   ├── requirements.txt                # [Dep] 서비스 구동 의존성 목록
+│   └── run.py                          # [Exec] Uvicorn 서버 실행 및 Ngrok 터널링
 │
-└── README.md                      # 프로젝트 통합 문서
+└── README.md                           # 프로젝트 통합 문서
