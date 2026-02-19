@@ -19,7 +19,12 @@
 **AI Traffic Violation Auto-Reporting System**
 - 차량 블랙박스/CCTV 영상을 분석하여 교통 법규 위반 차량을 자동으로 탐지 및 식별
 - 딥러닝 기반 객체 인식 및 위반 여부 판독 후, 생성형 AI(RAG)를 통해 신고서 자동 작성 및 관공서(안전신문고) 자동 접수 수행
-- 영상 분석부터 신고 접수까지의 전 과정을 무인 자동화하여 신고 프로세스의 효율성 극대화
+
+****
+<img width="962" height="521" alt="image" src="https://github.com/user-attachments/assets/437c07ea-57ac-458d-9015-8552572f4520" />
+<img width="962" height="521" alt="image" src="https://github.com/user-attachments/assets/437c07ea-57ac-458d-9015-8552572f4520" />
+
+
 
 <br>
 
