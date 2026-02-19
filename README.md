@@ -11,26 +11,29 @@
 
 </div>
 
-
 ---
 
 ## 1. Project Overview
 
 **AI Traffic Violation Auto-Reporting System**
-- 차량 블랙박스/CCTV 영상을 분석하여 교통 법규 위반 차량을 자동으로 탐지 및 식별
-- 딥러닝 기반 객체 인식 및 위반 여부 판독 후, 생성형 AI(RAG)를 통해 신고서 자동 작성 및 관공서(안전신문고) 자동 접수 수행
-
-<br>
-![20260213_RPA](https://github.com/user-attachments/assets/8fbe100e-f64a-4295-9080-cb0971c650e3)
-<br>
-
-
-**서비스 주요 기능**
-<img width="962" height="521" alt="image" src="https://github.com/user-attachments/assets/437c07ea-57ac-458d-9015-8552572f4520" />
+- 차량 블랙박스 및 CCTV 영상을 분석하여 교통 법규 위반 차량을 자동으로 탐지 및 식별하는 솔루션
+- 딥러닝 기반 객체 인식 및 위반 여부 판독 후, 생성형 AI(RAG)를 통해 신고서 자동 작성 및 관공서(안전신문고) 자동 접수 프로세스 수행
 
 <br>
 
+<div align="center">
+  <h3>System Demonstration</h3>
+  <img src="https://github.com/user-attachments/assets/8fbe100e-f64a-4295-9080-cb0971c650e3" width="90%" alt="System Demo" />
+</div>
 
+<br>
+
+<div align="center">
+  <h3>Service Workflow</h3>
+  <img src="https://github.com/user-attachments/assets/437c07ea-57ac-458d-9015-8552572f4520" width="90%" alt="Service Workflow" />
+</div>
+
+<br>
 
 ## 2. Key Features
 
