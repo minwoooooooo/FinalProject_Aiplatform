@@ -84,7 +84,6 @@ traffic-violation-reporter/
 ├── templates/                  # [Frontend] 클라이언트 테스트 리소스
 │   └── index.html              # API 테스트 및 데모용 웹 페이지
 │
-├── assets/                     # README 리소스
 ├── models/                     # [Assets] 학습된 AI 모델 및 Vector DB 저장소
 │   ├── best.pt                 # YOLO 모델 가중치
 │   ├── classifier_model.h5     # TensorFlow 위반 분류 모델
