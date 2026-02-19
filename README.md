@@ -109,3 +109,14 @@ traffic-violation-system/               # [Root] 프로젝트 최상위 루트
 │   └── run.py                          # [Exec] Uvicorn 서버 실행 및 Ngrok 터널링
 │
 └── README.md                           # 프로젝트 통합 문서
+```
+
+
+## 5. 첨부자료
+<p>
+  <a href="교통법규 위반 차량 자동 신고 시스템.pptx">
+    <img src="https://img.shields.io/badge/Download-Project_Presentation_(PPTX)-B7472A?style=for-the-badge&logo=microsoftpowerpoint&logoColor=white">
+  </a>
+</p>
+
+
