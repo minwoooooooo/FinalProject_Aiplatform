@@ -11,6 +11,7 @@
 
 </div>
 
+
 ---
 
 ## 1. Project Overview
@@ -19,6 +20,13 @@
 - 차량 블랙박스/CCTV 영상을 분석하여 교통 법규 위반 차량을 자동으로 탐지 및 식별
 - 딥러닝 기반 객체 인식 및 위반 여부 판독 후, 생성형 AI(RAG)를 통해 신고서 자동 작성 및 관공서(안전신문고) 자동 접수 수행
 - 영상 분석부터 신고 접수까지의 전 과정을 무인 자동화하여 신고 프로세스의 효율성 극대화
+
+<br>
+
+<br>
+
+![20260213_RPA](https://github.com/user-attachments/assets/8fbe100e-f64a-4295-9080-cb0971c650e3)
+
 
 <br>
 
@@ -76,6 +84,7 @@ traffic-violation-reporter/
 ├── templates/                  # [Frontend] 클라이언트 테스트 리소스
 │   └── index.html              # API 테스트 및 데모용 웹 페이지
 │
+├── assets/                     # README 리소스
 ├── models/                     # [Assets] 학습된 AI 모델 및 Vector DB 저장소
 │   ├── best.pt                 # YOLO 모델 가중치
 │   ├── classifier_model.h5     # TensorFlow 위반 분류 모델
